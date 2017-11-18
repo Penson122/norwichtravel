@@ -1,3 +1,5 @@
 node_modules/
 .expo/
 npm-debug.*
+server/.env
+server/node_modules
