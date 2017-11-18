@@ -16,21 +16,21 @@ const TransportClient = clients.createJsonClient({
 
 app.get('/train/:station', (req, res, next) => {
   const callback = (results) => {
-    res.json({results: results});
+    res.json(results);
   }
   getTrain(callback, req.params.station);
 });
 
 app.get('/train/:station/:date', (req, res, next) => {
   const callback = (results) => {
-    res.json({results});
+    res.json(results);
   }
   getTrain(callback, req.params.station, req.params.date);
 });
 
 app.get('/train/:station/:date/:time', (req, res, next) => {
   const callback = (results) => {
-    res.json({results});
+    res.json(results);
   }
   getTrain(callback, req.params.station, req.params.date, req.params.time);
 });
@@ -44,27 +44,27 @@ app.get('/bus/live/:station', (req, res, next) => {
 
 app.get('/bus/:station', (req, res, next) => {
   const callback = (results) => {
-    res.json({results});
+    res.json(results);
   }
   getBus(callback, req.params.station);
 });
 
 app.get('/bus/:station/:date', (req, res, next) => {
   const callback = (results) => {
-    res.json({results});
+    res.json(results);
   }
   getBus(callback, req.params.station, req.params.date);
 });
 
 app.get('/bus/:station/:date/:time', (req, res, next) => {
   const callback = (results) => {
-    res.json({results});
+    res.json(results);
   }
   getBus(callback, req.params.station, req.params.date, req.params.time);
 });
 
 const getTrain = (cb, station, date, time) => {
-  const dateTime = new Date().toISOString().split('T');
+  const dateTime = getCurrentDateTime();
   if(date === undefined){
     date = dateTime[0];
   }
@@ -77,19 +77,18 @@ const getTrain = (cb, station, date, time) => {
     if(err){
       console.log(err)
     }
-    console.log(req.res.headers);
     cb(obj);
   });
 };
 
 
 const getBus = (cb, station, date, time) => {
-  const dateTime = new Date().toISOString().split('T');
+  const dateTime = getCurrentDateTime();
   if(date === undefined){
     date = dateTime[0];
   }
   if(time === undefined){
-    time = dateTime[1].substring(0, 5);
+    time = dateTime[1]
   }
 
   const url = '/v3/uk/bus/stop/' + station + '/' + date + '/' + time  + '/timetable.json' + TRNSPRT_PARAMS;
@@ -111,5 +110,13 @@ const getLiveBus = (cb, station) => {
   });
 };
 
+const getCurrentDateTime = () => {
+  const dateTime = new Date().toISOString().split('T');
+  dateTime[1] = dateTime[1].substring(0, 5);
+  return dateTime;
+}
+
 console.log('listening on port : ', PORT);
 app.listen(PORT);
+
+module.exports = { app, getTrain, getBus, getLiveBus, getCurrentDateTime };
