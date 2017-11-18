@@ -1,13 +1,47 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import Navigation from './components/Navigation';
+import Bus from './routes/Bus';
+import Home from './routes/Home';
+import Train from './routes/Train';
+import Flights from './routes/Flights';
+import Taxi from './routes/Taxi';
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      currentPage: <Home />
+    }
+    this.switchPage = this.switchPage.bind(this);
+  }
+
+  switchPage(newIndex, oldIndex){
+    this.setState({activeTab: newIndex});
+    switch(newIndex){
+      case 0:
+        this.setState({currentPage: <Bus />});
+        break;
+      case 1:
+        this.setState({currentPage: <Train />});
+        break;
+      case 2:
+        this.setState({currentPage: <Home />});
+        break;
+      case 3:
+        this.setState({currentPage: <Flights />});
+        break;
+      case 4:
+        this.setState({currentPage: <Taxi />});
+        break;
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        {this.state.currentPage}
+        <Navigation pageHandler={this.switchPage} activeTab={this.state.activeTab}/>
       </View>
     );
   }
