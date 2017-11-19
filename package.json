@@ -17,7 +17,8 @@
     "ci:test": "node node_modules/jest/bin/jest.js"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "testPathIgnorePatterns": ["server", "node_modules"]
   },
   "dependencies": {
     "dotenv": "^4.0.0",
