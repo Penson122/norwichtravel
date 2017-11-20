@@ -3,6 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-chai-friendly": "^0.4.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.1",
     "jest-expo": "^22.0.0",
     "react-native-scripts": "1.7.0",
     "react-test-renderer": "16.0.0-beta.5"
@@ -18,7 +29,10 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "testPathIgnorePatterns": ["server", "node_modules"]
+    "testPathIgnorePatterns": [
+      "server",
+      "node_modules"
+    ]
   },
   "dependencies": {
     "dotenv": "^4.0.0",
