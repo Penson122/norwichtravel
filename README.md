@@ -12,7 +12,14 @@ Norwich Travel Information Website (HCI CW2 - CMP-6039A)
 ## Get Android Emulator
 
 ### Windows
-Don't bother.
+* Make sure the following have been installed:
+    * Android Studio and SDK
+    * Genymotion (free for personal use) with VirutalBox!!
+        * Inside Genymotion set up Android Virtual Machine 7.1 or later
+    * Double check VirtualBox can be run (if not install VirutalBox)
+* Add Android\sdk\platform-tools to PATH
+* Run Genymotion Virtual Machine
+* Run `yarn android` and enjoy the miracles of React (and have a cuppa, that was a lot)
 
 ### MacOS
 * `brew tap caskroom/cask`
