@@ -1,7 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
+
+import Search from '../components/Search';
+
 const Bus = () => {
-  return <Text>This is the Bus Page</Text>
+  let searchTerms = {};
+  const searchHandler = (fields) => { searchTerms = { ...fields }; };
+  return (
+    <View>
+      <Search submitHandler={searchHandler} />
+      <Text>This is the Bus Page</Text>
+    </View>
+  );
 };
 
 export default Bus;
