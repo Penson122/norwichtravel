@@ -81,7 +81,7 @@ app.get('/train/:station/:date/:time', (req, res, next) => {
 
 app.get('/bus/live/:station', (req, res, next) => {
   const callback = (results) => {
-    res.json({ results: results });
+    res.json(results);
   };
   getLiveBus(callback, req.params.station);
 });
@@ -150,13 +150,8 @@ const getBus = (cb, station, date, time) => {
     if (err) {
       console.log(err);
     }
-    const list = Object.entries(obj.departures)
-      .map(([key, value]) => value)
-      .reduce((acc, cur) => acc.concat(cur), []);
-    list.sort((a, b) => {
-      return a.aimed_departure_time.localeCompare(b.aimed_departure_time);
-    });
-    cb(list);
+    const results = flatMapBusResults(obj);
+    cb(results);
   });
 };
 
@@ -166,7 +161,8 @@ const getLiveBus = (cb, station) => {
     if (err) {
       console.log(err);
     }
-    cb(obj);
+    const results = flatMapBusResults(obj)
+    cb(results);
   });
 };
 
@@ -174,6 +170,16 @@ const getCurrentDateTime = () => {
   const dateTime = new Date().toISOString().split('T');
   dateTime[1] = dateTime[1].substring(0, 5);
   return dateTime;
+};
+
+const flatMapBusResults = (results) => {
+  const list = Object.entries(results.departures)
+    .map(([key, value]) => value)
+    .reduce((acc, cur) => acc.concat(cur), []);
+  list.sort((a, b) => {
+    return a.aimed_departure_time.localeCompare(b.aimed_departure_time);
+  });
+  return list;
 };
 
 console.log('listening on port : ', PORT);
