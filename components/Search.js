@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import AutoComplete from './AutoComplete';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import AutoComplete from './AutoComplete';
 import { NORWICH_API } from '../constants';
+
+const styles = StyleSheet.create({
+  input: {
+  },
+  autocomplete: {
+    zIndex: 10
+  },
+  button: {
+    width: 5
+  }
+});
 
 function getAutoCompleteList (url) {
   return fetch(url)
@@ -33,9 +45,10 @@ class Search extends Component {
     console.log(props);
     this.state = {
       expanded: props.expanded,
+      placeholder: { ...props.placeholder },
       defaults: { ...props.defaults },
       originText: '',
-      destinationText: '',
+      destinationText: props.defaults.destination ? 'NRW' : '',
       destinationAutoComplete: [],
       originAutoComplete: [],
       stops: [],
@@ -110,16 +123,19 @@ class Search extends Component {
   }
 
   render () {
+    const swapIcon = <MaterialCommunityIcons name='swap-vertical' size={25} color='black' />;
     return (
       <View style={styles.container}>
         <View>
           <TextInput
             autoFocus
-            placeholder={this.state.defaults.origin}
+            placeholder={this.state.placeholder.origin}
             onChangeText={(text) => this.onTextChange(text, 'origin')}
             value={this.state.originText}
+            editable={this.state.defaults.origin}
+            defaultValue={this.state.defaults.origin ? this.state.defaults.origin : ''}
             returnKeyType='next'
-            style={{ height: 40, marginBottom: '2%', backgroundColor: this.state.backgroundColor }}
+            style={{ height: 40, marginBottom: '2%', backgroundColor: this.state.backgroundColor, width: '85%' }}
           />
           <AutoComplete
             selectionHandler={this.state.originSelector}
@@ -130,11 +146,15 @@ class Search extends Component {
         { this.props.options.destination
           ? <View>
             <TextInput
-              style={{ height: 40, marginBottom: '2%', backgroundColor: this.state.backgroundColor }}
+              style={{ height: 40, marginBottom: '2%', backgroundColor: this.state.backgroundColor, width: '85%' }}
               onChangeText={(text) => this.onTextChange(text, 'dest')}
               value={this.state.destinationText}
+              // eslint-disable-next-line no-extra-boolean-cast
+              editable={!(!!this.props.defaults.destination)}
+              defaultValue={this.props.defaults.destination}
               returnKeyType='next'
             />
+            {swapIcon}
             <AutoComplete
               selectionHandler={this.state.destinationSelector}
               style={styles.autocomplete}
@@ -148,22 +168,15 @@ class Search extends Component {
           title='Submit'
           color='#841584'
           accessibilityLabel='Submit search terms'
+          style={{ width: 100 }}
         />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  input: {
-  },
-  autocomplete: {
-    zIndex: 10
-  }
-});
-
 Search.propTypes = {
-  defaults: PropTypes.shape({
+  placeholder: PropTypes.shape({
     origin: PropTypes.string.isRequired,
     destination: PropTypes.string,
     arrivalTime: PropTypes.string,
@@ -171,6 +184,14 @@ Search.propTypes = {
     arrivalDate: PropTypes.string,
     departureDate: PropTypes.string,
   }).isRequired,
+  defaults: PropTypes.shape({
+    origin: PropTypes.string,
+    destination: PropTypes.string,
+    arrivalTime: PropTypes.string,
+    departureTime: PropTypes.string,
+    arrivalDate: PropTypes.string,
+    departureDate: PropTypes.string,
+  }),
   expanded: PropTypes.bool,
   options: PropTypes.shape({
     destination: PropTypes.boolean,
