@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Platform } from 'react-native';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
 import { NORWICH_API } from '../constants.js';
 
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: Platform.OS === 'ios' ? '5%' : 0, // fix for padding in expo apps on android
+    marginRight: '1%',
+    marginLeft: '1%'
+  },
+});
+
 class Bus extends Component {
   constructor (props) {
     super(props);
     this.state = {
       results: [],
-      defaults: {
+      placeholder: {
         origin: 'Search for road...'
       },
       options: {
@@ -56,14 +64,15 @@ class Bus extends Component {
   };
   render () {
     return (
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <Search
           submitHandler={this.searchHandler}
           nearHandler={this.nearHandler}
           options={this.state.options}
-          defaults={this.state.defaults}
+          placeholder={this.state.placeholder}
+          defaults={{}}
         />
-        <SearchResults results={this.state.results} />
+        <SearchResults results={this.state.results} style={{ paddingTop: '3%' }} />
       </ScrollView>
     );
   };
