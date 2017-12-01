@@ -6,7 +6,7 @@
     "description": "Travel Information for the Norwich, Norfolk, UK area",
     "privacy": "unlisted",
     "androidStatusBar": {
-      "barStyle": "dark-content"
+      "barStyle": "light-content"
     }
   }
 }

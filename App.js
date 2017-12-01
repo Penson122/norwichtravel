@@ -1,59 +1,79 @@
 import React from 'react';
-import { StyleSheet, View, Platform, StatusBar } from 'react-native';
 
-import Navigation from './components/Navigation';
+import { TabNavigator } from 'react-navigation';
+
+import { Ionicons } from '@expo/vector-icons';
+
 import Bus from './routes/Bus';
 import Home from './routes/Home';
 import Train from './routes/Train';
 import Flights from './routes/Flights';
 import Taxi from './routes/Taxi';
-export default class App extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      activeTab: 2,
-      currentPage: <Home />
-    };
-    this.switchPage = this.switchPage.bind(this);
-  }
 
-  switchPage (newIndex, oldIndex) {
-    this.setState({ activeTab: newIndex });
-    switch (newIndex) {
-      case 0:
-        this.setState({ currentPage: <Bus /> });
-        break;
-      case 1:
-        this.setState({ currentPage: <Train /> });
-        break;
-      case 2:
-        this.setState({ currentPage: <Home /> });
-        break;
-      case 3:
-        this.setState({ currentPage: <Flights /> });
-        break;
-      case 4:
-        this.setState({ currentPage: <Taxi /> });
-        break;
+const App = TabNavigator({
+  Bus: {
+    screen: Bus,
+    navigationOptions: {
+      tabBarLabel: 'Bus',
+      // eslint-disable-next-line
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons name='md-bus' size={focused ? 22 : 20} color={tintColor} />
+      )
+    }
+  },
+
+  Train: {
+    screen: Train,
+    navigationOptions: {
+      tabBarLabel: 'Train',
+      // eslint-disable-next-line
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons name='md-train' size={focused ? 22 : 20} color={tintColor} />
+      )
+    }
+  },
+
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      tabBarLabel: 'Home',
+      // eslint-disable-next-line
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons name='md-home' size={focused ? 22 : 20} color={tintColor} />
+      )
+    }
+  },
+
+  Flights: {
+    screen: Flights,
+    navigationOptions: {
+      tabBarLabel: 'Flights',
+      // eslint-disable-next-line
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons name='md-plane' size={focused ? 22 : 20} color={tintColor} />
+      )
+    }
+  },
+
+  Taxi: {
+    screen: Taxi,
+    navigationOptions: {
+      tabBarLabel: 'Taxi',
+      // eslint-disable-next-line
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons name='md-car' size={focused ? 22 : 20} color={tintColor} />
+      )
     }
   }
-
-  render () {
-    return (
-      <View style={styles.container}>
-        {this.state.currentPage}
-        <Navigation pageHandler={this.switchPage} activeTab={this.state.activeTab} />
-      </View>
-    );
+}, {
+  tabBarPosition: 'bottom',
+  initialRouteName: 'Home',
+  tabBarOptions: {
+    showIcon: true,
+    labelStyle: {
+      fontSize: 12
+    }
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight + 1, // fix for padding in expo apps on android
-    paddingLeft: '2%',
-    paddingRight: '2%'
-  },
 });
+
+export default App;

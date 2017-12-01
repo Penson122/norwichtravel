@@ -5,25 +5,25 @@ import PropTypes from 'prop-types';
 import SearchResult from './SearchResult';
 
 const styles = StyleSheet.create({
-  container: {
+  item: {
     // height: '10%',
-    paddingBottom: '5%',
+    // marginBottom: '5%',
     borderBottomColor: 'black',
     borderBottomWidth: 1,
   },
   text: {
     textAlign: 'left',
     position: 'relative',
-    top: '50%'
+    // top: '50%'
   }
 });
 
 class SearchResults extends Component {
   render () {
     return (
-      <View>
+      <View style={this.props.style} >
         { this.props.results.map((r, i) => <SearchResult
-          viewStyle={styles.container}
+          viewStyle={styles.item}
           textStyle={styles.text}
           key={i}
           type='bus'
@@ -37,7 +37,8 @@ class SearchResults extends Component {
 }
 
 SearchResults.propTypes = {
-  results: PropTypes.array.isRequired
+  results: PropTypes.array.isRequired,
+  style: PropTypes.object
 };
 
 export default SearchResults;
