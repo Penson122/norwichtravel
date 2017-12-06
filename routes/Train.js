@@ -24,7 +24,7 @@ class Train extends React.Component {
       destinationText: 'Norwich',
       hasSelected: false,
       stations: [],
-      placeholder: { origin: 'Search for road...' },
+      placeholder: { origin: 'Search for city' },
       originAutoComplete: [],
       destinationAutoComplete: [],
       defaults: { destination: false, origin: true }
@@ -124,14 +124,15 @@ class Train extends React.Component {
             });
           });
         });
-      } else if (origin.length < 1) {
-        console.log('how did this happen?');
       } else {
         this.getTimeTable(originStation.station_code).then(response => {
           const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
           this.setState({ results });
         });
       }
+    } else {
+      console.log('no search criteria');
+      this.setState({ placeholder: { origin: 'Must enter origin to search' } });
     }
   };
 
@@ -156,7 +157,7 @@ class Train extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <Search
-          placeholder={{ origin: 'Search Station' }}
+          placeholder={this.state.placeholder}
           options={{ destination: true }}
           submitHandler={this.searchHandler}
           originText={this.state.originText}
