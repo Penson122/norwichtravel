@@ -40,38 +40,7 @@ describe('Train', () => {
         console.error(err);
       }
       res.should.have.status(200);
-      res.body.should.be.an('object');
-      res.body.should.have.all.keys(
-        ['date', 'time_of_day', 'request_time', 'station_name', 'station_code', 'departures']);
-      done();
-    });
-  });
-  it('Should be able to request with current date', (done) => {
-    const dateTime = server.getCurrentDateTime();
-    chai.request(app).get('/train/NRW/' + dateTime[0]).end((err, res) => {
-      if (err) {
-        console.error(err);
-      }
-      res.should.have.status(200);
-      res.body.should.be.an('object');
-      res.body.should.have.all.keys(
-        ['date', 'time_of_day', 'request_time', 'station_name', 'station_code', 'departures']);
-      res.body.date.should.equal(dateTime[0]);
-      done();
-    });
-  });
-  it('Should be able to request with date and time', (done) => {
-    const dateTime = server.getCurrentDateTime();
-    chai.request(app).get('/train/NRW/' + dateTime[0] + '/' + dateTime[1]).end((err, res) => {
-      if (err) {
-        console.error(err);
-      }
-      res.should.have.status(200);
-      res.body.should.be.an('object');
-      res.body.should.have.all.keys(
-        ['date', 'time_of_day', 'request_time', 'station_name', 'station_code', 'departures']);
-      res.body.date.should.equal(dateTime[0]);
-      res.body.time_of_day.should.equal(dateTime[1]);
+      res.body.should.be.an('array');
       done();
     });
   });
