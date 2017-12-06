@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
     // marginBottom: '5%',
     borderBottomColor: 'black',
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: '2%'
   },
   text: {
     textAlign: 'left',
@@ -26,9 +30,9 @@ class SearchResults extends Component {
           viewStyle={styles.item}
           textStyle={styles.text}
           key={i}
-          type='bus'
-          line={r.line}
-          destination={r.direction}
+          type={this.props.type}
+          line={r[this.props.lineKey]}
+          destination={r[this.props.destinationKey]}
           time={r.aimed_departure_time}
         />)}
       </View>
@@ -38,7 +42,10 @@ class SearchResults extends Component {
 
 SearchResults.propTypes = {
   results: PropTypes.array.isRequired,
-  style: PropTypes.object
+  style: PropTypes.object,
+  lineKey: PropTypes.string.isRequired,
+  destinationKey: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };
 
 export default SearchResults;
