@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View } from 'react-native';
+import { Text, View, ViewPropTypes } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -35,7 +35,7 @@ class SearchResult extends Component {
 }
 
 SearchResult.propTypes = {
-  viewStyle: View.propTypes.style,
+  viewStyle: ViewPropTypes.style,
   textStyle: Text.propTypes.style,
   type: PropTypes.string.isRequired,
   line: PropTypes.string.isRequired,
