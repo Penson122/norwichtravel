@@ -110,7 +110,6 @@ class Train extends React.Component {
   }
 
   searchHandler (origin, destination) {
-    console.log(typeof origin);
     if (origin.length > 0) {
       const originStation = this.state.stations.find(s => s.name === origin);
       if (originStation === undefined) {
@@ -126,10 +125,10 @@ class Train extends React.Component {
           });
         });
       } else if (origin.length < 1) {
-
+        console.log('how did this happen?');
       } else {
         this.getTimeTable(originStation.station_code).then(response => {
-          const results = response.filter(e => e.destination_name === this.state.destinationText);
+          const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
           this.setState({ results });
         });
       }
