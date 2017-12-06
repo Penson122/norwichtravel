@@ -8,13 +8,9 @@ const clients = require('restify-clients');
 
 const TRNSPRT_API = 'https://transportapi.com/';
 const GOOGLE_API = 'https://maps.googleapis.com/';
-const TRNSPRT_PARAMS = '?app_id=' +
-  process.env.TRANSPORT_API_ID + '&app_key=' + process.env.TRANSPORT_API_KEY;
+const TRNSPRT_PARAMS = `?app_id=${process.env.TRANSPORT_API_ID}&app_key=${process.env.TRANSPORT_API_KEY}`;
 
-const PLACES_PARAMS = '/maps/api/place/autocomplete/json?key=' +
-  process.env.GOOGLE_MAPS_KEY + '&types=geocode&input=norwich, ';
-
-const GEOCODING_PARAMS = '/maps/api/geocode/json?key=' + process.env.GOOGLE_MAPS_KEY + '&address=';
+const GEOCODING_PARAMS = `/maps/api/geocode/json?key=${process.env.GOOGLE_MAPS_KEY}&address=`;
 
 const TransportClient = clients.createJsonClient({
   url: TRNSPRT_API
@@ -24,9 +20,14 @@ const GoogleClient = clients.createJsonClient({
   url: GOOGLE_API
 });
 
-app.get('/autocomplete/:searchTerms', (req, res, next) => {
-  const url = encodeURI(PLACES_PARAMS + req.params.searchTerms);
-  console.log(url);
+const getPlacesParam = (type, query) => (
+  // eslint-disable-next-line
+  `/maps/api/place/autocomplete/json?key=${process.env.GOOGLE_MAPS_KEY}&types=${type}&input=${type === 'address' ? 'norwich, ' : 'uk, '}${query}`
+);
+
+app.get('/autocomplete/:type/:searchTerms', (req, res, next) => {
+  const type = req.params.type === 'bus' ? 'address' : '(cities)';
+  const url = encodeURI(getPlacesParam(type, req.params.searchTerms));
   GoogleClient.get(url, (err, req, resp, obj) => {
     if (err) {
       console.error(err);
@@ -56,6 +57,13 @@ app.get('/bus/near/:lat/:lng', (req, res, next) => {
     res.json(results);
   };
   nearBus(callback, req.params.lat, req.params.lng);
+});
+
+app.get('/train/near/:lat/:lng', (req, res, next) => {
+  const callback = (results) => {
+    res.json(results);
+  };
+  nearTrain(callback, req.params.lat, req.params.lng);
 });
 
 app.get('/train/:station', (req, res, next) => {
@@ -116,7 +124,19 @@ const getTrain = (cb, station, date, time) => {
     time = dateTime[1];
   }
 
-  const url = '/v3/uk/train/station/' + station + '/' + date + '/' + time + '/timetable.json' + TRNSPRT_PARAMS;
+  const url = `/v3/uk/train/station/${station}/${date}/${time}/timetable.json${TRNSPRT_PARAMS}`;
+  TransportClient.get(url, (err, req, res, obj) => {
+    if (err) {
+      console.log(err);
+    }
+    const results = flatMapTransportResults(obj);
+    cb(results);
+  });
+};
+
+const nearBus = (cb, lat, lon) => {
+  const url = '/v3/uk/bus/stops/near.json' + TRNSPRT_PARAMS + '&lat=' + lat + '&lon=' + lon + '&rpp=10';
+  console.log(url);
   TransportClient.get(url, (err, req, res, obj) => {
     if (err) {
       console.log(err);
@@ -125,8 +145,8 @@ const getTrain = (cb, station, date, time) => {
   });
 };
 
-const nearBus = (cb, lat, lon) => {
-  const url = '/v3/uk/bus/stops/near.json' + TRNSPRT_PARAMS + '&lat=' + lat + '&lon=' + lon + '&rpp=10';
+const nearTrain = (cb, lat, lon) => {
+  const url = '/v3/uk/train/stations/near.json' + TRNSPRT_PARAMS + '&lat=' + lat + '&lon=' + lon + '&rpp=25';
   console.log(url);
   TransportClient.get(url, (err, req, res, obj) => {
     if (err) {
@@ -150,7 +170,7 @@ const getBus = (cb, station, date, time) => {
     if (err) {
       console.log(err);
     }
-    const results = flatMapBusResults(obj);
+    const results = flatMapTransportResults(obj);
     cb(results);
   });
 };
@@ -161,7 +181,7 @@ const getLiveBus = (cb, station) => {
     if (err) {
       console.log(err);
     }
-    const results = flatMapBusResults(obj)
+    const results = flatMapTransportResults(obj);
     cb(results);
   });
 };
@@ -172,7 +192,7 @@ const getCurrentDateTime = () => {
   return dateTime;
 };
 
-const flatMapBusResults = (results) => {
+const flatMapTransportResults = (results) => {
   const list = Object.entries(results.departures)
     .map(([key, value]) => value)
     .reduce((acc, cur) => acc.concat(cur), []);
