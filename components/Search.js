@@ -62,6 +62,16 @@ class Search extends Component {
               onPress={this.props.switch}
             />
             : null}
+          {
+            this.state.expanded
+              ? <ExtendedSearch
+                handleTimeSelect={this.props.onOriginTimeChange}
+                handleDateSelect={this.props.onOriginDateChange}
+                time={this.props.originTime}
+                date={this.props.originDate}
+              />
+              : null
+          }
           <AutoComplete
             selectionHandler={this.props.onOriginSelect}
             style={styles.autocomplete}
@@ -86,12 +96,12 @@ class Search extends Component {
           : null
         }
         {
-          this.state.expanded
+          this.props.options.destination && this.state.expanded
             ? <ExtendedSearch
-              handleTimeSelect={this.props.onTimeChange}
-              handleDateSelect={this.props.onDateChange}
-              time={this.props.originTime}
-              date={this.props.originDate}
+              handleTimeSelect={this.props.onDestinationTimeChange}
+              handleDateSelect={this.props.onDestinationDateChange}
+              time={this.props.destinationTime}
+              date={this.props.destinationDate}
             />
             : null
         }
@@ -136,8 +146,10 @@ Search.propTypes = {
   submitHandler: PropTypes.func.isRequired,
   onOriginChange: PropTypes.func.isRequired,
   onDestinationChange: PropTypes.func,
-  onDateChange: PropTypes.func.isRequired,
-  onTimeChange: PropTypes.func.isRequired,
+  onOriginDateChange: PropTypes.func.isRequired,
+  onOriginTimeChange: PropTypes.func.isRequired,
+  onDestinationDateChange: PropTypes.func,
+  onDestinationTimeChange: PropTypes.func,
   onOriginSelect: PropTypes.func.isRequired,
   onDestinationSelect: PropTypes.func,
   originAutoComplete: PropTypes.array.isRequired,
@@ -146,6 +158,8 @@ Search.propTypes = {
   destinationText: PropTypes.string,
   originTime: PropTypes.string,
   originDate: PropTypes.string,
+  destinationTime: PropTypes.string,
+  destinationDate: PropTypes.string,
   switch: PropTypes.func,
 };
 

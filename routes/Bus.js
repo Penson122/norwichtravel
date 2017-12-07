@@ -121,8 +121,8 @@ class Bus extends Component {
           originTime={this.state.originTime}
           originDate={this.state.originDate}
           onOriginChange={this.originChange}
-          onDateChange={this.onDateChange}
-          onTimeChange={this.onTimeChange}
+          onOriginDateChange={this.onDateChange}
+          onOriginTimeChange={this.onTimeChange}
           originAutoComplete={this.state.originAutoComplete}
           onOriginSelect={this.onOriginSelect}
           options={this.state.options}

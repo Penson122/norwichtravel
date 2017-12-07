@@ -6,6 +6,8 @@ require('dotenv').config();
 
 const clients = require('restify-clients');
 
+//
+
 const TRNSPRT_API = 'https://transportapi.com/';
 const GOOGLE_API = 'https://maps.googleapis.com/';
 const TRNSPRT_PARAMS = `?app_id=${process.env.TRANSPORT_API_ID}&app_key=${process.env.TRANSPORT_API_KEY}`;
@@ -22,7 +24,7 @@ const GoogleClient = clients.createJsonClient({
 
 const getPlacesParam = (type, query) => (
   // eslint-disable-next-line
-  `/maps/api/place/autocomplete/json?key=${process.env.GOOGLE_MAPS_KEY}&types=${type}&input=${type === 'address' ? 'norwich, ' : 'uk, '}${query}`
+  `/maps/api/place/autocomplete/json?key=${process.env.GOOGLE_MAPS_KEY}&types=${type}&input=${type === 'address' ? 'uk, norwich ' : 'uk, '}${query}`
 );
 
 app.get('/autocomplete/:type/:searchTerms', (req, res, next) => {
