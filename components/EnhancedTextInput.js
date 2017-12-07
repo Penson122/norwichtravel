@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   input: {
-    width: '90%'
+    width: '90%',
+    fontSize: 20
   }
 });
 
