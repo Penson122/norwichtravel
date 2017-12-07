@@ -48,7 +48,7 @@ class Search extends Component {
               value={this.props.originText}
               editable={this.props.defaults.origin}
             >
-              { this.props.originText.length > 3 ? <Ionicons name='ios-close' size={30} /> : null }
+              { this.props.originText.length > 3 ? <Ionicons name='ios-close' size={36} /> : null }
             </EnhancedTextInput>
           </View>
           {this.props.options.destination
@@ -85,13 +85,14 @@ class Search extends Component {
           ? <View>
             <View style={styles.input}>
               <EnhancedTextInput
+                placeholder={this.props.placeholder.destination}
                 buttonHandler={this.props.clearDestinationText}
                 onChangeText={this.props.onDestinationChange}
                 value={this.props.destinationText}
                 editable={(this.props.defaults.destination)}
               >
                 { this.props.destinationText.length &&
-                  !this.props.defaults.destination > 3 ? <Ionicons name='ios-close' size={30} /> : null }
+                  !this.props.defaults.destination > 3 ? <Ionicons name='ios-close' size={36} /> : null }
               </EnhancedTextInput>
             </View>
             <AutoComplete
@@ -105,7 +106,7 @@ class Search extends Component {
         <Button
           onPress={() => this.props.submitHandler(this.props.originText, this.props.destinationText)}
           title='Submit'
-          color='#841584'
+          color='#00A1FF'
           accessibilityLabel='Submit search terms'
           style={{ width: 100 }}
         />
