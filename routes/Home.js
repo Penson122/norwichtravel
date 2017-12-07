@@ -10,14 +10,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#3ea01b'
   },
   welcomeTextBox: {
-    textAlign: 'center',
-    color: '#221e1f'
+    alignSelf: 'center'
   },
   welcome: {
-    fontSize: 25
+    fontSize: 25,
+    color: '#221e1f'
   },
   welcomeInfo: {
-    fontSize: 25
+    fontSize: 25,
+    color: '#221e1f'
   }
 });
 
@@ -26,12 +27,11 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.welcomeTextBox}>
         <Text style={styles.welcome}>Welcome to Norwich Travel!</Text>
-        <Text style={styles.welcomeInfo}>Please use the navigation bar down the bottom of your screen for:
-          <FlatList
-            data={[ { key: 'Bus Times' }, { key: 'Train Times' }, { key: 'Taxi Numbers' }, { key: 'FLight Times' } ]}
-            renderItem={({ item }) => <Text>{item.key}</Text>}
-          />
-        </Text>
+        <Text style={styles.welcomeInfo}>Please use the navigation bar down the bottom of your screen for:</Text>
+        <FlatList
+          data={[ { key: 'Bus Times' }, { key: 'Train Times' }, { key: 'Taxi Numbers' }, { key: 'FLight Times' } ]}
+          renderItem={({ item }) => <Text>{item.key}</Text>}
+        />
       </View>
     </View>
   );
