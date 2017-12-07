@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 import AutoComplete from './AutoComplete';
-
+import ExtendedSearch from './ExtendedSearch';
 const styles = StyleSheet.create({
   input: {
   },
@@ -21,9 +21,17 @@ class Search extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      expanded: props.expanded,
+      expanded: false,
+      expandedIcon: 'ios-arrow-down'
     };
+    this.onExpandedSelect = this.onExpandedSelect.bind(this);
   }
+  onExpandedSelect () {
+    this.setState({
+      expanded: !this.state.expanded,
+      expandedIcon: !this.state.expanded ? 'ios-arrow-up' : 'ios-arrow-down'
+    });
+  };
   render () {
     return (
       <View style={styles.container}>
@@ -77,12 +85,28 @@ class Search extends Component {
           </View>
           : null
         }
+        {
+          this.state.expanded
+            ? <ExtendedSearch
+              handleTimeSelect={this.props.onTimeChange}
+              handleDateSelect={this.props.onDateChange}
+              time={this.props.originTime}
+              date={this.props.originDate}
+            />
+            : null
+        }
         <Button
           onPress={() => this.props.submitHandler(this.props.originText, this.props.destinationText)}
           title='Submit'
           color='#841584'
           accessibilityLabel='Submit search terms'
           style={{ width: 100 }}
+        />
+        <Ionicons
+          name={this.state.expandedIcon}
+          size={40}
+          style={{ alignSelf: 'center' }}
+          onPress={this.onExpandedSelect}
         />
       </View>
     );
@@ -93,10 +117,6 @@ Search.propTypes = {
   placeholder: PropTypes.shape({
     origin: PropTypes.string.isRequired,
     destination: PropTypes.string,
-    arrivalTime: PropTypes.string,
-    departureTime: PropTypes.string,
-    arrivalDate: PropTypes.string,
-    departureDate: PropTypes.string,
   }).isRequired,
   defaults: PropTypes.shape({
     origin: PropTypes.boolean,
@@ -106,7 +126,6 @@ Search.propTypes = {
     arrivalDate: PropTypes.boolean,
     departureDate: PropTypes.boolean,
   }),
-  expanded: PropTypes.bool,
   options: PropTypes.shape({
     destination: PropTypes.boolean,
     depTime: PropTypes.boolean,
@@ -117,12 +136,16 @@ Search.propTypes = {
   submitHandler: PropTypes.func.isRequired,
   onOriginChange: PropTypes.func.isRequired,
   onDestinationChange: PropTypes.func,
+  onDateChange: PropTypes.func.isRequired,
+  onTimeChange: PropTypes.func.isRequired,
   onOriginSelect: PropTypes.func.isRequired,
   onDestinationSelect: PropTypes.func,
-  originText: PropTypes.string.isRequired,
-  destinationText: PropTypes.string,
   originAutoComplete: PropTypes.array.isRequired,
   destinationAutoComplete: PropTypes.array,
+  originText: PropTypes.string.isRequired,
+  destinationText: PropTypes.string,
+  originTime: PropTypes.string,
+  originDate: PropTypes.string,
   switch: PropTypes.func,
 };
 

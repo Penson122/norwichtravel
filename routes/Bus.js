@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Platform } from 'react-native';
+import { ScrollView, StyleSheet, Platform, Text } from 'react-native';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
-import { getAutoCompleteList, getLatLng } from '../util';
+import { getAutoCompleteList, getLatLng, getDateTime } from '../util';
 
 import { NORWICH_API } from '../constants.js';
 
@@ -19,9 +19,12 @@ const styles = StyleSheet.create({
 class Bus extends Component {
   constructor (props) {
     super(props);
+    const datetime = getDateTime();
     this.state = {
       results: [],
       originText: '',
+      originTime: datetime[1],
+      originDate: datetime[0],
       hasSelected: false,
       stops: [],
       placeholder: {
@@ -37,6 +40,8 @@ class Bus extends Component {
     this.searchHandler = this.searchHandler.bind(this);
     this.originChange = this.originChange.bind(this);
     this.onOriginSelect = this.onOriginSelect.bind(this);
+    this.onDateChange = this.onDateChange.bind(this);
+    this.onTimeChange = this.onTimeChange.bind(this);
   }
 
   originChange (text) {
@@ -82,26 +87,42 @@ class Bus extends Component {
       });
   };
 
-  getTimeTable (stop) {
-    const url = NORWICH_API + '/bus/' + stop;
+  getTimeTable (stop, date, time) {
+    const url = `${NORWICH_API}/bus/${stop}/${date}/${time}`;
     return this.getFromAPI(url);
   };
 
   searchHandler (origin) {
     if (origin !== undefined) {
       const originStop = this.state.stops.find(s => s.name === origin);
-      this.getTimeTable(originStop.atcocode).then(response => {
+      this.getTimeTable(originStop.atcocode, this.state.originDate, this.state.originTime).then(response => {
         this.setState({ results: response });
       });
     }
   };
+
+  onDateChange (date) {
+    date = getDateTime(date)[0];
+    this.setState({ originDate: date });
+  }
+
+  onTimeChange (time) {
+    time = getDateTime(time)[1];
+    this.setState({ originTime: time });
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
+        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Updates</Text>
         <Search
           submitHandler={this.searchHandler}
           originText={this.state.originText}
+          originTime={this.state.originTime}
+          originDate={this.state.originDate}
           onOriginChange={this.originChange}
+          onDateChange={this.onDateChange}
+          onTimeChange={this.onTimeChange}
           originAutoComplete={this.state.originAutoComplete}
           onOriginSelect={this.onOriginSelect}
           options={this.state.options}

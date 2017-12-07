@@ -11,6 +11,12 @@ export const getAutoCompleteList = (url) => {
     });
 };
 
+export const getDateTime = (datetime) => {
+  const dateTime = datetime ? datetime.toISOString().split('T') : new Date().toISOString().split('T');
+  dateTime[1] = dateTime[1].substring(0, 5);
+  return dateTime;
+};
+
 export const getLatLng = (address) => {
   const url = NORWICH_API + '/geocode/' + address;
   return fetch(url)
