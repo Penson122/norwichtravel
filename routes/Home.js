@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     color: '#221e1f'
   },
   welcome: {
-    fontSize: '25'
+    fontSize: 25
   },
   welcomeInfo: {
-    fontSize: '15'
+    fontSize: 25
   }
 });
 
