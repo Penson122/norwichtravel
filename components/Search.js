@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 import AutoComplete from './AutoComplete';
-
+import ExtendedSearch from './ExtendedSearch';
+import EnhancedTextInput from './EnhancedTextInput';
 const styles = StyleSheet.create({
   input: {
+    width: '90%',
+    marginVertical: '2%'
   },
   autocomplete: {
     zIndex: 10
@@ -21,30 +24,37 @@ class Search extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      expanded: props.expanded,
+      expanded: false,
+      expandedIcon: 'ios-arrow-down'
     };
+    this.onExpandedSelect = this.onExpandedSelect.bind(this);
   }
+  onExpandedSelect () {
+    this.setState({
+      expanded: !this.state.expanded,
+      expandedIcon: !this.state.expanded ? 'ios-arrow-up' : 'ios-arrow-down'
+    });
+  };
   render () {
     return (
       <View style={styles.container}>
         <View>
-          <TextInput
-            autoFocus
-            placeholder={this.props.placeholder.origin}
-            onChangeText={this.props.onOriginChange}
-            value={this.props.originText}
-            editable={this.props.defaults.origin}
-            returnKeyType='next'
-            style={{
-              height: 40,
-              marginBottom: '2%',
-              width: this.props.options.destination ? '85%' : '100%' }}
-          />
+          <View style={styles.input}>
+            <EnhancedTextInput
+              buttonHandler={this.props.clearOriginText}
+              placeholder={this.props.placeholder.origin}
+              onChangeText={this.props.onOriginChange}
+              value={this.props.originText}
+              editable={this.props.defaults.origin}
+            >
+              { this.props.originText.length > 3 ? <Ionicons name='ios-close' size={30} /> : null }
+            </EnhancedTextInput>
+          </View>
           {this.props.options.destination
             ? <MaterialCommunityIcons
               style={{
                 alignSelf: 'flex-end',
-                top: 25,
+                top: 10,
                 position: 'absolute',
                 right: 10,
               }}
@@ -54,6 +64,16 @@ class Search extends Component {
               onPress={this.props.switch}
             />
             : null}
+          {
+            this.state.expanded
+              ? <ExtendedSearch
+                handleTimeSelect={this.props.onOriginTimeChange}
+                handleDateSelect={this.props.onOriginDateChange}
+                time={this.props.originTime}
+                date={this.props.originDate}
+              />
+              : null
+          }
           <AutoComplete
             selectionHandler={this.props.onOriginSelect}
             style={styles.autocomplete}
@@ -62,13 +82,17 @@ class Search extends Component {
         </View>
         { this.props.options.destination
           ? <View>
-            <TextInput
-              style={{ height: 40, marginBottom: '2%', width: '85%' }}
-              onChangeText={this.props.onDestinationChange}
-              value={this.props.destinationText}
-              editable={(this.props.defaults.destination)}
-              returnKeyType='next'
-            />
+            <View style={styles.input}>
+              <EnhancedTextInput
+                buttonHandler={this.props.clearDestinationText}
+                onChangeText={this.props.onDestinationChange}
+                value={this.props.destinationText}
+                editable={(this.props.defaults.destination)}
+              >
+                { this.props.destinationText.length &&
+                  !this.props.defaults.destination > 3 ? <Ionicons name='ios-close' size={30} /> : null }
+              </EnhancedTextInput>
+            </View>
             <AutoComplete
               selectionHandler={this.props.onDestinationSelect}
               style={styles.autocomplete}
@@ -84,6 +108,12 @@ class Search extends Component {
           accessibilityLabel='Submit search terms'
           style={{ width: 100 }}
         />
+        <Ionicons
+          name={this.state.expandedIcon}
+          size={40}
+          style={{ alignSelf: 'center' }}
+          onPress={this.onExpandedSelect}
+        />
       </View>
     );
   }
@@ -93,10 +123,6 @@ Search.propTypes = {
   placeholder: PropTypes.shape({
     origin: PropTypes.string.isRequired,
     destination: PropTypes.string,
-    arrivalTime: PropTypes.string,
-    departureTime: PropTypes.string,
-    arrivalDate: PropTypes.string,
-    departureDate: PropTypes.string,
   }).isRequired,
   defaults: PropTypes.shape({
     origin: PropTypes.boolean,
@@ -106,7 +132,6 @@ Search.propTypes = {
     arrivalDate: PropTypes.boolean,
     departureDate: PropTypes.boolean,
   }),
-  expanded: PropTypes.bool,
   options: PropTypes.shape({
     destination: PropTypes.boolean,
     depTime: PropTypes.boolean,
@@ -114,15 +139,21 @@ Search.propTypes = {
     depDate: PropTypes.boolean,
     arrivDate: PropTypes.boolean
   }).isRequired,
+  clearOriginText: PropTypes.func,
+  clearDestinationText: PropTypes.func,
   submitHandler: PropTypes.func.isRequired,
   onOriginChange: PropTypes.func.isRequired,
   onDestinationChange: PropTypes.func,
+  onOriginDateChange: PropTypes.func.isRequired,
+  onOriginTimeChange: PropTypes.func.isRequired,
   onOriginSelect: PropTypes.func.isRequired,
   onDestinationSelect: PropTypes.func,
-  originText: PropTypes.string.isRequired,
-  destinationText: PropTypes.string,
   originAutoComplete: PropTypes.array.isRequired,
   destinationAutoComplete: PropTypes.array,
+  originText: PropTypes.string.isRequired,
+  destinationText: PropTypes.string,
+  originTime: PropTypes.string,
+  originDate: PropTypes.string,
   switch: PropTypes.func,
 };
 
