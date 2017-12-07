@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 import AutoComplete from './AutoComplete';
 import ExtendedSearch from './ExtendedSearch';
+import EnhancedTextInput from './EnhancedTextInput';
 const styles = StyleSheet.create({
   input: {
+    width: '90%',
+    marginVertical: '2%'
   },
   autocomplete: {
     zIndex: 10
@@ -36,23 +39,22 @@ class Search extends Component {
     return (
       <View style={styles.container}>
         <View>
-          <TextInput
-            autoFocus
-            placeholder={this.props.placeholder.origin}
-            onChangeText={this.props.onOriginChange}
-            value={this.props.originText}
-            editable={this.props.defaults.origin}
-            returnKeyType='next'
-            style={{
-              height: 40,
-              marginBottom: '2%',
-              width: this.props.options.destination ? '85%' : '100%' }}
-          />
+          <View style={styles.input}>
+            <EnhancedTextInput
+              buttonHandler={this.props.clearOriginText}
+              placeholder={this.props.placeholder.origin}
+              onChangeText={this.props.onOriginChange}
+              value={this.props.originText}
+              editable={this.props.defaults.origin}
+            >
+              { this.props.originText.length > 3 ? <Ionicons name='ios-close' size={30} /> : null }
+            </EnhancedTextInput>
+          </View>
           {this.props.options.destination
             ? <MaterialCommunityIcons
               style={{
                 alignSelf: 'flex-end',
-                top: 25,
+                top: 10,
                 position: 'absolute',
                 right: 10,
               }}
@@ -80,13 +82,17 @@ class Search extends Component {
         </View>
         { this.props.options.destination
           ? <View>
-            <TextInput
-              style={{ height: 40, marginBottom: '2%', width: '85%' }}
-              onChangeText={this.props.onDestinationChange}
-              value={this.props.destinationText}
-              editable={(this.props.defaults.destination)}
-              returnKeyType='next'
-            />
+            <View style={styles.input}>
+              <EnhancedTextInput
+                buttonHandler={this.props.clearDestinationText}
+                onChangeText={this.props.onDestinationChange}
+                value={this.props.destinationText}
+                editable={(this.props.defaults.destination)}
+              >
+                { this.props.destinationText.length &&
+                  !this.props.defaults.destination > 3 ? <Ionicons name='ios-close' size={30} /> : null }
+              </EnhancedTextInput>
+            </View>
             <AutoComplete
               selectionHandler={this.props.onDestinationSelect}
               style={styles.autocomplete}
@@ -94,16 +100,6 @@ class Search extends Component {
             />
           </View>
           : null
-        }
-        {
-          this.props.options.destination && this.state.expanded
-            ? <ExtendedSearch
-              handleTimeSelect={this.props.onDestinationTimeChange}
-              handleDateSelect={this.props.onDestinationDateChange}
-              time={this.props.destinationTime}
-              date={this.props.destinationDate}
-            />
-            : null
         }
         <Button
           onPress={() => this.props.submitHandler(this.props.originText, this.props.destinationText)}
@@ -143,13 +139,13 @@ Search.propTypes = {
     depDate: PropTypes.boolean,
     arrivDate: PropTypes.boolean
   }).isRequired,
+  clearOriginText: PropTypes.func,
+  clearDestinationText: PropTypes.func,
   submitHandler: PropTypes.func.isRequired,
   onOriginChange: PropTypes.func.isRequired,
   onDestinationChange: PropTypes.func,
   onOriginDateChange: PropTypes.func.isRequired,
   onOriginTimeChange: PropTypes.func.isRequired,
-  onDestinationDateChange: PropTypes.func,
-  onDestinationTimeChange: PropTypes.func,
   onOriginSelect: PropTypes.func.isRequired,
   onDestinationSelect: PropTypes.func,
   originAutoComplete: PropTypes.array.isRequired,
@@ -158,8 +154,6 @@ Search.propTypes = {
   destinationText: PropTypes.string,
   originTime: PropTypes.string,
   originDate: PropTypes.string,
-  destinationTime: PropTypes.string,
-  destinationDate: PropTypes.string,
   switch: PropTypes.func,
 };
 
