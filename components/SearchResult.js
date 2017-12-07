@@ -27,8 +27,10 @@ class SearchResult extends Component {
   render () {
     return (
       <View style={this.props.viewStyle}>
-        <Text style={this.props.textStyle}>{this.state.icon}  {this.props.line} {this.props.destination} </Text><Text
-          style={{ textAlign: 'right' }}>{this.props.time}</Text>
+        <Text style={
+          [{ paddingLeft: 10 }, this.props.textStyle]
+        }>{this.state.icon}  {this.props.line} {this.props.destination} </Text><Text
+          style={[{ textAlign: 'right' }, this.props.textStyle]}>{this.props.time}</Text>
       </View>
     );
   }

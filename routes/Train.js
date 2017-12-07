@@ -27,7 +27,7 @@ class Train extends React.Component {
       originDate: datetime[0],
       hasSelected: false,
       stations: [],
-      placeholder: { origin: 'Search for city' },
+      placeholder: { origin: 'Search for city', destination: 'Destination' },
       originAutoComplete: [],
       destinationAutoComplete: [],
       defaults: { destination: false, origin: true }
