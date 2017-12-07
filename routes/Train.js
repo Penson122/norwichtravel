@@ -122,7 +122,6 @@ class Train extends React.Component {
       if (originStation === undefined) {
         // hax
         getLatLng(`${origin}, UK`).then(geocode => {
-          console.log(geocode);
           const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
           this.getFromAPI(url).then(response => {
             const originStation = response.stations.find(s => s.name.includes(origin));
@@ -140,7 +139,6 @@ class Train extends React.Component {
         });
       }
     } else {
-      console.log('no search criteria');
       this.setState({ placeholder: { origin: 'Must enter origin to search' } });
     }
   };
