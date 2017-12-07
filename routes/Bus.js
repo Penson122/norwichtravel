@@ -42,6 +42,7 @@ class Bus extends Component {
     this.onOriginSelect = this.onOriginSelect.bind(this);
     this.onDateChange = this.onDateChange.bind(this);
     this.onTimeChange = this.onTimeChange.bind(this);
+    this.clearOriginText = this.clearOriginText.bind(this);
   }
 
   originChange (text) {
@@ -111,12 +112,17 @@ class Bus extends Component {
     this.setState({ originTime: time });
   }
 
+  clearOriginText () {
+    this.setState({ originText: '', originAutoComplete: [] });
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
         <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Updates</Text>
         <Search
           submitHandler={this.searchHandler}
+          clearOriginText={this.clearOriginText}
           originText={this.state.originText}
           originTime={this.state.originTime}
           originDate={this.state.originDate}
