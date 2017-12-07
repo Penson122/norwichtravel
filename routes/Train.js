@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet, Platform } from 'react-native';
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
-import { getAutoCompleteList, getLatLng } from '../util';
+import { getAutoCompleteList, getLatLng, getDateTime } from '../util';
 import { NORWICH_API } from '../constants.js';
 
 const styles = StyleSheet.create({
@@ -18,10 +18,13 @@ const styles = StyleSheet.create({
 class Train extends React.Component {
   constructor (props) {
     super(props);
+    const datetime = getDateTime();
     this.state = {
       results: [],
       originText: '',
       destinationText: 'Norwich',
+      originTime: datetime[1],
+      originDate: datetime[0],
       hasSelected: false,
       stations: [],
       placeholder: { origin: 'Search for city' },
@@ -36,6 +39,10 @@ class Train extends React.Component {
     this.getFromAPI = this.getFromAPI.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.switchOriginDestination = this.switchOriginDestination.bind(this);
+    this.onOriginDateChange = this.onOriginDateChange.bind(this);
+    this.onOriginTimeChange = this.onOriginTimeChange.bind(this);
+    this.clearOriginText = this.clearOriginText.bind(this);
+    this.clearDestinationText = this.clearDestinationText.bind(this);
   };
 
   onOriginChange (text) {
@@ -118,26 +125,26 @@ class Train extends React.Component {
           const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
           this.getFromAPI(url).then(response => {
             const originStation = response.stations.find(s => s.name.includes(origin));
-            this.getTimeTable(originStation.station_code).then(response => {
-              const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
-              this.setState({ results });
-            });
+            this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime)
+              .then(response => {
+                let results = response.filter(e => e.destination_name.includes(this.state.destinationText));
+                this.setState({ results });
+              });
           });
         });
       } else {
-        this.getTimeTable(originStation.station_code).then(response => {
+        this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime).then(response => {
           const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
           this.setState({ results });
         });
       }
     } else {
-      console.log('no search criteria');
       this.setState({ placeholder: { origin: 'Must enter origin to search' } });
     }
   };
 
-  getTimeTable (stop) {
-    const url = NORWICH_API + '/train/' + stop;
+  getTimeTable (stop, date, time) {
+    const url = `${NORWICH_API}/train/${stop}/${date}/${time}`;
     return this.getFromAPI(url);
   };
 
@@ -153,6 +160,24 @@ class Train extends React.Component {
       });
   };
 
+  onOriginDateChange (date) {
+    date = getDateTime(date)[0];
+    this.setState({ originDate: date });
+  }
+
+  onOriginTimeChange (time) {
+    time = getDateTime(time)[1];
+    this.setState({ originTime: time });
+  }
+
+  clearOriginText () {
+    this.setState({ originText: '', originAutoComplete: [] });
+  }
+
+  clearDestinationText () {
+    this.setState({ destinationText: '', destinationAutoComplete: [] });
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -160,12 +185,18 @@ class Train extends React.Component {
           placeholder={this.state.placeholder}
           options={{ destination: true }}
           submitHandler={this.searchHandler}
+          clearOriginText={this.clearOriginText}
+          clearDestinationText={this.clearDestinationText}
           originText={this.state.originText}
           destinationText={this.state.destinationText}
           originAutoComplete={this.state.originAutoComplete}
           destinationAutoComplete={this.state.destinationAutoComplete}
           onOriginChange={this.onOriginChange}
           onDestinationChange={this.onDestinationChange}
+          originTime={this.state.originTime}
+          originDate={this.state.originDate}
+          onOriginDateChange={this.onOriginDateChange}
+          onOriginTimeChange={this.onOriginTimeChange}
           onOriginSelect={this.onOriginSelect}
           onDestinationSelect={this.onDestinationSelect}
           defaults={this.state.defaults}
