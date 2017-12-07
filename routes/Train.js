@@ -25,8 +25,6 @@ class Train extends React.Component {
       destinationText: 'Norwich',
       originTime: datetime[1],
       originDate: datetime[0],
-      destinationDate: '',
-      destinationTime: '',
       hasSelected: false,
       stations: [],
       placeholder: { origin: 'Search for city' },
@@ -43,8 +41,8 @@ class Train extends React.Component {
     this.switchOriginDestination = this.switchOriginDestination.bind(this);
     this.onOriginDateChange = this.onOriginDateChange.bind(this);
     this.onOriginTimeChange = this.onOriginTimeChange.bind(this);
-    this.onDestinationDateChange = this.onDestinationDateChange.bind(this);
-    this.onDestinationTimeChange = this.onDestinationTimeChange.bind(this);
+    this.clearOriginText = this.clearOriginText.bind(this);
+    this.clearDestinationText = this.clearDestinationText.bind(this);
   };
 
   onOriginChange (text) {
@@ -131,12 +129,6 @@ class Train extends React.Component {
             this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime)
               .then(response => {
                 let results = response.filter(e => e.destination_name.includes(this.state.destinationText));
-                if (this.state.destinationTime.length > 1) {
-                  console.log(results);
-                }
-                if (this.state.destinationDate.length > 1) {
-
-                }
                 this.setState({ results });
               });
           });
@@ -180,14 +172,12 @@ class Train extends React.Component {
     this.setState({ originTime: time });
   }
 
-  onDestinationDateChange (date) {
-    date = getDateTime(date)[0];
-    this.setState({ destinationDate: date });
+  clearOriginText () {
+    this.setState({ originText: '', originAutoComplete: [] });
   }
 
-  onDestinationTimeChange (time) {
-    time = getDateTime(time)[1];
-    this.setState({ destinationTime: time });
+  clearDestinationText () {
+    this.setState({ destinationText: '', destinationAutoComplete: [] });
   }
 
   render () {
@@ -197,6 +187,8 @@ class Train extends React.Component {
           placeholder={this.state.placeholder}
           options={{ destination: true }}
           submitHandler={this.searchHandler}
+          clearOriginText={this.clearOriginText}
+          clearDestinationText={this.clearDestinationText}
           originText={this.state.originText}
           destinationText={this.state.destinationText}
           originAutoComplete={this.state.originAutoComplete}
@@ -205,12 +197,8 @@ class Train extends React.Component {
           onDestinationChange={this.onDestinationChange}
           originTime={this.state.originTime}
           originDate={this.state.originDate}
-          destinationTime={this.state.destinationTime}
-          destinationDate={this.state.destinationDate}
           onOriginDateChange={this.onOriginDateChange}
           onOriginTimeChange={this.onOriginTimeChange}
-          onDestinationDateChange={this.onDestinationDateChange}
-          onDestinationTimeChange={this.onDestinationTimeChange}
           onOriginSelect={this.onOriginSelect}
           onDestinationSelect={this.onDestinationSelect}
           defaults={this.state.defaults}
