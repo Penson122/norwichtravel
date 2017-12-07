@@ -36,6 +36,8 @@ class Train extends React.Component {
     this.getFromAPI = this.getFromAPI.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.switchOriginDestination = this.switchOriginDestination.bind(this);
+    this.onDateChange = this.onDateChange.bind(this);
+    this.onTimeChange = this.onTimeChange.bind(this);
   };
 
   onOriginChange (text) {
@@ -153,6 +155,14 @@ class Train extends React.Component {
       });
   };
 
+  onDateChange (date) {
+    this.setState({ originDate: date });
+  }
+
+  onTimeChange (time) {
+    this.setState({ originTime: time });
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -166,6 +176,8 @@ class Train extends React.Component {
           destinationAutoComplete={this.state.destinationAutoComplete}
           onOriginChange={this.onOriginChange}
           onDestinationChange={this.onDestinationChange}
+          onDateChange={this.onDateChange}
+          onTimeChange={this.onTimeChange}
           onOriginSelect={this.onOriginSelect}
           onDestinationSelect={this.onDestinationSelect}
           defaults={this.state.defaults}
