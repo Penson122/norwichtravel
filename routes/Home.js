@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform, FlatList } from 'react-native';
-import { Pack } from '../../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/tar';
+/* import { Pack } from '../../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/tar'; */
 
 const styles = StyleSheet.create({
   container: {
