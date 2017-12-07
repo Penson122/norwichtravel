@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3ea01b'
   },
   welcomeTextBox: {
-    textAlign: 'centre',
+    textAlign: 'center',
     color: '#221e1f'
   },
   welcome: {
