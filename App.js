@@ -17,7 +17,7 @@ const App = TabNavigator({
       tabBarLabel: 'Bus',
       // eslint-disable-next-line
       tabBarIcon: ({ tintColor, focused }) => (
-        <Ionicons name='md-bus' size={focused ? 22 : 20} color={tintColor} />
+        <Ionicons name='md-bus' size={focused ? 23 : 20} color={tintColor} />
       )
     }
   },
@@ -28,7 +28,7 @@ const App = TabNavigator({
       tabBarLabel: 'Train',
       // eslint-disable-next-line
       tabBarIcon: ({ tintColor, focused }) => (
-        <Ionicons name='md-train' size={focused ? 22 : 20} color={tintColor} />
+        <Ionicons name='md-train' size={focused ? 23 : 20} color={tintColor} />
       )
     }
   },
@@ -39,7 +39,7 @@ const App = TabNavigator({
       tabBarLabel: 'Home',
       // eslint-disable-next-line
       tabBarIcon: ({ tintColor, focused }) => (
-        <Ionicons name='md-home' size={focused ? 22 : 20} color={tintColor} />
+        <Ionicons name='md-home' size={focused ? 23 : 20} color={tintColor} />
       )
     }
   },
@@ -50,7 +50,7 @@ const App = TabNavigator({
       tabBarLabel: 'Flights',
       // eslint-disable-next-line
       tabBarIcon: ({ tintColor, focused }) => (
-        <Ionicons name='md-plane' size={focused ? 22 : 20} color={tintColor} />
+        <Ionicons name='md-plane' size={focused ? 23 : 20} color={tintColor} />
       )
     }
   },
@@ -61,7 +61,7 @@ const App = TabNavigator({
       tabBarLabel: 'Taxi',
       // eslint-disable-next-line
       tabBarIcon: ({ tintColor, focused }) => (
-        <Ionicons name='md-car' size={focused ? 22 : 20} color={tintColor} />
+        <Ionicons name='md-car' size={focused ? 23 : 20} color={tintColor} />
       )
     }
   }
@@ -70,8 +70,12 @@ const App = TabNavigator({
   initialRouteName: 'Home',
   tabBarOptions: {
     showIcon: true,
+    activeTintColor: '#FFFFFF',
     labelStyle: {
       fontSize: 12
+    },
+    style: {
+      backgroundColor: '#403F4C'
     }
   }
 });

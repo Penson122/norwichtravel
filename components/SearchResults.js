@@ -16,9 +16,10 @@ const styles = StyleSheet.create({
     paddingVertical: '2%'
   },
   text: {
+    marginBottom: '1.5%',
     textAlign: 'left',
     position: 'relative',
-    // top: '50%'
+    fontSize: 16
   }
 });
 
