@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Text>This is the Home page</Text>
+      <Text style={{ justifyContent:'centre', fontsize: '2em' }}>Welcome to Norwich Travel!</Text>
     </View>
   );
 };
