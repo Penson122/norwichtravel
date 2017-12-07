@@ -10,7 +10,8 @@ import EnhancedTextInput from './EnhancedTextInput';
 const styles = StyleSheet.create({
   input: {
     width: '90%',
-    marginVertical: '2%'
+    marginVertical: '2%',
+    marginHorizontal: '2%'
   },
   autocomplete: {
     zIndex: 10
