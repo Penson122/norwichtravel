@@ -7,8 +7,10 @@
 
 ## Sections
 - Introduction
-	- What is Usability and Accessbility?
-	- Key Features of Norwich Travel
+- What is Usability and Accessbility?
+	- Why?
+	- How?
+- Key Features of Norwich Travel
 	- Who is Norwich Travel for?
 - Designing for Usability and Accessibility
 	- Conforming to known Principles
@@ -22,3 +24,13 @@
 - Conclusions
 	- Was NorwichTravel Accessible in general?
 	- Was NorwichTravel Accessible to the user groups mentioned in the introduction?
+
+## Notes from the Marksheet
+- [8 marks] knowledge and undestanding of usability principles 			1
+- [8 marks] Usability evaluation 										1
+- [4 marks] Accessibility Features and Testing							1
+- [8 marks] for any other "interesting" work							0
+- [5 marks] quality of writing, grammar and spelling					1
+- [2 marks] bibliography												0
+- [3 marks] layout and figures/diagrams									0
+- Total == 38
