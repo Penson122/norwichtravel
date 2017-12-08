@@ -5,8 +5,7 @@ const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 
 const clients = require('restify-clients');
-
-//
+const taxis = require('./taxis.json');
 
 const TRNSPRT_API = 'https://transportapi.com/';
 const GOOGLE_API = 'https://maps.googleapis.com/';
@@ -117,6 +116,18 @@ app.get('/bus/:station/:date/:time', (req, res, next) => {
   getBus(callback, req.params.station, req.params.date, req.params.time);
 });
 
+app.get('/taxis/', (req, res, next) => {
+  res.json(getTaxiList());
+});
+
+const getTaxiList = (callback) => {
+  return taxis.results.map(e => ({
+    name: e.name,
+    number: e.number,
+    rating: e.rating
+  })).sort((a, b) => b.rating - a.rating);
+};
+
 const getTrain = (cb, station, date, time) => {
   const dateTime = getCurrentDateTime();
   if (date === undefined) {
@@ -204,6 +215,16 @@ const flatMapTransportResults = (results) => {
   return list;
 };
 
+taxis.results.forEach(e => {
+  const url = `/maps/api/place/details/json?key=${process.env.GOOGLE_MAPS_KEY}&placeid=${e.place_id}`;
+  GoogleClient.get(url, (err, req, resp, ob) => {
+    if (err) console.log(err);
+    else {
+      e.number = ob.result.formatted_phone_number;
+      e.rating = ob.result.rating;
+    }
+  });
+});
 console.log('listening on port : ', PORT);
 app.listen(PORT);
 

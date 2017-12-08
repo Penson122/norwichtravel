@@ -1,0 +1,677 @@
+{
+  "html_attributions": [],
+  "next_page_token": "CrQCJAEAAP6k3UuBhTGr05TIozgAe9WmCm4SEkRf8DabZiN6tVw6Jy19pkgjjD1l_9_EXZtegEFuHl_8oLsP-eFGQ_8SHKeUuvWtoQMVCkP8to9bzlve4fZJTFdJ2hGr-ykuvfuWBVcsY1FGTucLjbRyofJLSsEn4lmTtCeS6pZqG14xCYnKLBKdDa7C-mbAs3vXsStypXKOjHUlQ7uPJI0P8bzcJLU-E1I1PQZMvdKjx6nXvl4mJ7nJceOJSotBpJXUgUnNHOu94psYHO90nHKo25ymQLJhzOzjHV9s0iFiMbPQMoS4My773nuijxEHeQ4cpXcmoDH36iFkIGQ0azoL31FkLnvJE8la4KiUIzJw_fCssTFXhjpJRHnnSzFdb59cQA2Jg74Wgeh26f563_Q62onNvVQSEAujGUPN02eb0rZdFlLU8U0aFFWjsZoVwIeGJm4Uo65EmEHIxd5n",
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6392289,
+          "lng": 1.2801652
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6405249802915,
+            "lng": 1.281603380291502
+          },
+          "southwest": {
+            "lat": 52.6378270197085,
+            "lng": 1.278905419708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "331a5416c6ecb28c95296d411c526ccf38aa387f",
+      "name": "ABC Taxis",
+      "place_id": "ChIJYZKRk2Ph2UcRxC0H09EEBTc",
+      "rating": 2.7,
+      "reference": "CmRRAAAA4ulUkb6wtKWeTYNvRsLRtSAJE5Z3o4FzQemrnprhbtfwedrTNLYfTr3tHw-iCaUZbzb0Hv3nPQAUhHmqzzuqnTsFqWLOtCLVMIzNoAmVXW508Qm8Oy3HoKQJiuV_3WGxEhDbfDRJGDa9JUiedpQACXeSGhRiRhxzFyBJaaUZH-bkrQ5KWUDboA",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "50 Paddock Street, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.62876300000001,
+          "lng": 1.302897
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6301608802915,
+            "lng": 1.304311680291502
+          },
+          "southwest": {
+            "lat": 52.6274629197085,
+            "lng": 1.301613719708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "919056d6abe67a89e7604eaee210ba20d667d68b",
+      "name": "Courtesy Taxis",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 1126,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109402906627331544347/photos\">Courtesy Taxis</a>"
+          ],
+          "photo_reference": "CmRaAAAAmLj7iMIYy_Z38x8gSEH4VDiHJ1dLD6e4x5CDEqZ66tpyIQDfdW--5u8b9kioNf0qpD21YR1cQ-TaY4UqmxjI8sofcqrEmlsC3fz4W6MXLtEf7MzdDFqiW-smcrWO1k_nEhDNkA0Uh2S04kq8PMnGZ_XpGhQ8zKwrgSeEewTw3VO2Euf0DmMEXw",
+          "width": 2000
+        }
+      ],
+      "place_id": "ChIJ0SrZNHTh2UcR4UaNpUc19Mk",
+      "rating": 2.9,
+      "reference": "CmRSAAAAYxwZ9qi-G5vBvghp5F4dhJM00uGiF09SFXgKfKwfr4fiECR1hDYozOxz-x0wUBB1JwIz0VH1BMaH9UXTmUp-1w_x31SKaqXIOZiLcEU2LkWNhpyH40V-8JH_iOCPsoRBEhA4qGthanJk_J8d-pegVw9jGhR8pZ2CvdZUSv8kdmYGY2EsQu-B8A",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "77A Prince of Wales Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6292598,
+          "lng": 1.3014701
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6306474302915,
+            "lng": 1.302843980291502
+          },
+          "southwest": {
+            "lat": 52.6279494697085,
+            "lng": 1.300146019708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "2e413f05373c933ae5814d608fd3fdd2cb93f4be",
+      "name": "Five Star Taxis Ltd",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 620,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111369783496763997766/photos\">Five Star Taxis Ltd</a>"
+          ],
+          "photo_reference": "CmRaAAAAXsbiuWi3d4ovS04tjb8aZlSbNyhsBYFXe3j-n_B7Hqa-dGKdSUwH9H_s8iPEhY9XhayU6XFhs25Ry3PJ12zS32IhP97N_daD4S_AVsJYpdd34MnA9XBMPVg7yjLu7LkJEhBhwNZpbsYYUeTS5K6G_sBwGhSq3zPVAsOP9Otxf2IxhEPTsgaehA",
+          "width": 1960
+        }
+      ],
+      "place_id": "ChIJe8NRq-nj2UcRKSBjSdm9hwU",
+      "rating": 2.5,
+      "reference": "CmRRAAAA2Ky16ie_ehmzG0Oot7FEEP8eBWOs2CL-AOVLXIWPE3pLDBZSkfvhHbuxuH9LNsmoizVqReSMN60Fp2jiJzIj8HKMVRP7iB10tM22oaUmUJ3675N9ic2e-C51V0tC5WFiEhCHWofkI29g34CTx8p4LyzDGhS_iTwLD7ysiNPJJ9nppyeAqiukhA",
+      "scope": "GOOGLE",
+      "types": [
+        "taxi_stand",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "43a Prince of Wales Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.652066,
+          "lng": 1.267028
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6534149802915,
+            "lng": 1.268376980291502
+          },
+          "southwest": {
+            "lat": 52.6507170197085,
+            "lng": 1.265679019708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "08e75c4058e49768e77dea4f87479cb9a39f1d86",
+      "name": "Goldstar Taxis Norwich",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 565,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105939655637869769434/photos\">Goldstar Taxis Norwich</a>"
+          ],
+          "photo_reference": "CmRaAAAAqcw71WKHkxtTvJ_3hh4uw8TfYat2cmT3UXLcgmVWfVQVZpVSeQs3mdijcv3lsVhDCBMIqKN6tGv-3r4eu47_rAKesmKa3xsCWew_mHz0VlaNuUMEK-ounu_N9T5cTKzbEhD0bpSzqXu8KNPl8BsHT0G_GhSR38SejMBGZi74ONpm_-k4wofKKQ",
+          "width": 1008
+        }
+      ],
+      "place_id": "ChIJgUOX6nXh2UcRDTEpf4-BON4",
+      "rating": 4.4,
+      "reference": "CmRSAAAAk7VCC_fsvHmqXwGwjeXR-a_78_y9IiAqjtTaQJ33Ucx67c48Dgji_ACCfiXZMn_FG4-lWxLV1w6pJNfMZqqOJlfoEWesDggdn6aXE2_lLzRA6pgl6rv8tv_26eCdXB9YEhCH0r3RhnaDPlevflwPMI_XGhTdmgrwhPOwDj-oadRRgDdu9RF_KQ",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "56 Whiffler Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6405542,
+          "lng": 1.2965701
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6418140802915,
+            "lng": 1.297837080291502
+          },
+          "southwest": {
+            "lat": 52.6391161197085,
+            "lng": 1.295139119708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "4a6359d404b92e51de5b0973a908c4cb26c025d8",
+      "name": "Bestway Taxis Norwich",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 351,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112914597047714408712/photos\">Bestway Taxis Norwich</a>"
+          ],
+          "photo_reference": "CmRaAAAAPdwSD3MGWifZ4ZAFhC8hqeRgcatbT6JP6r_G242dTIuOs-nkMZI10k4q1-Bzz3UjOquTgPBGj_xcJ6Xm-K7vl-0II2S5yIJxxIjwPJVYbqdUArLsvxLrpPjn-BrOWheFEhC5QQSjCHz5cm0wEZnZb8SOGhT7yHg1tFk1gWvyFbUq17eBOIfePA",
+          "width": 980
+        }
+      ],
+      "place_id": "ChIJS-IR8Nrj2UcR4NP3kJhSLM8",
+      "rating": 3.3,
+      "reference": "CmRSAAAA0IuT_HlDtATblLZAmdL3jqoWHVYQUe24K7u7ESdrn-9B2334tUsJgUub8j7pAUsf4GHw1H_HGy7MMC6QznfkSVyvCMADsMEQK0W0-6o1fYAkhz6vsRdxHx8cG-uWJgQtEhAAVfgN1Cdi1XuuviABQE9rGhTpC0_bXKwVkRis3z7pl4IPbqvvrg",
+      "scope": "GOOGLE",
+      "types": [
+        "taxi_stand",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "25 Magdalen Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6279176,
+          "lng": 1.2989746
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.62931458029149,
+            "lng": 1.300219980291502
+          },
+          "southwest": {
+            "lat": 52.6266166197085,
+            "lng": 1.297522019708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "bbee6bb6735d9d441a8169be5e534b2a1194c85e",
+      "name": "Loyal Taxis",
+      "place_id": "ChIJExRvnOjj2UcRM-3QIt44FtQ",
+      "rating": 3.4,
+      "reference": "CmRSAAAAiU0wu2DsHgMapVTzI--_fdfVb_t_dMs7SVd2p9LKMcvp3s31YcPSWB3th0XP3qJuSi_7JIpCtAgINBj0iNj2b21ehBiDjwUHb7MyMNoaE5LDvZMvNC05lU8WaN2IpIYdEhAl_dgDtfSpPeipr_swXoEKGhSrW544l60tMGGJZRubiNcnu3zaSw",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "34A Cattle Market Street, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6257472,
+          "lng": 1.2965609
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.62708628029149,
+            "lng": 1.297824630291502
+          },
+          "southwest": {
+            "lat": 52.6243883197085,
+            "lng": 1.295126669708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "4e685e54ecc75000ffc34c03b5ca37739c3c9b86",
+      "name": "Kestral Taxis",
+      "place_id": "ChIJZ82G2-Xj2UcR0Kis1nIWBLE",
+      "rating": 3.9,
+      "reference": "CmRSAAAAqDUUzRT2GYcVc46IMhbQDERaHdW8GNZ2v_o62A9tEMqMb45qeOplWtxZrRv_pXANAIWQzIODyqIvozMX2Mp49Ptxx2RlFD4ZosaooEwG9iZdxM-MiWRmbXWVkToZId3UEhARObk1LYM7vjwxPQX09advGhRoJYmBmNCpcX9vD-0kThKJwaoTCg",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "6 Ber Street, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6289372,
+          "lng": 1.2930162
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6302924302915,
+            "lng": 1.294297330291502
+          },
+          "southwest": {
+            "lat": 52.6275944697085,
+            "lng": 1.291599369708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "58076fc8bfaf3efc00684eec776d3d2d037cc845",
+      "name": "Nortax Taxis",
+      "place_id": "ChIJ71ZG1ubj2UcRxeuuTqXrcec",
+      "rating": 3,
+      "reference": "CmRSAAAAEoFMX5rTOWWqfBdv4QLAe7wg4b6_LHaGiEujQXWuuzhA9W98tL3_Rmtz12k-0C_6H86ase8TREevFwUgXvflk9Xy6SK-eJqpyNa97wWddw6c9iEFL3E6DDRA7b0f_ND8EhC29rwK6zeS5lrSYm4sudBFGhTPOgtBTUFN5hqJPJty_HHOpKyjUQ",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Gaol Hill, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6311439,
+          "lng": 1.2992605
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6324928802915,
+            "lng": 1.300609480291502
+          },
+          "southwest": {
+            "lat": 52.6297949197085,
+            "lng": 1.297911519708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "bde06a890507c7b22fefbd19e6dd2b564c513a72",
+      "name": "Yellow Taxis Norwich",
+      "place_id": "ChIJ1yX0BOjj2UcR68Pr2YYU0TU",
+      "rating": 3,
+      "reference": "CmRRAAAAfB-rC4n-QmV2OOdPqP0dKGuFIWWkfbW_8qvpUgZET2n6DsUW0wztB8cfUct96ueslNMHXMv2kl2jaWXq5ktMd5dnpoA07GGV2ThE0ta89qe-IyZNVa8J9rJqvm1cVIxOEhD--bG_xixVU0jv0gz3GUHfGhTnwp_v0gJ5TpoX_H_Kghunh1q1pQ",
+      "scope": "GOOGLE",
+      "types": [
+        "car_rental",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "1A Holmwood Rise, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.62650449999999,
+          "lng": 1.3061362
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6278760302915,
+            "lng": 1.307421130291502
+          },
+          "southwest": {
+            "lat": 52.6251780697085,
+            "lng": 1.304723169708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "dfff27382342e234c1700ecd9ecdb54d9a0bd554",
+      "name": "1st Call Taxi Call",
+      "place_id": "ChIJrZX7kuvj2UcRo-SfLY9VtDk",
+      "rating": 2.3,
+      "reference": "CmRRAAAApfHjpj-9KF8DL4HGj0PY-Nz8e8GhCJfOhBikCq9XySCvnBfIrWOnXOPqiI0Lp4ccr8GuYiazvuHWGaiyiIQrYtshRTii7lK0oFHijxd6-YOJ0kHc17oSwBW4pZ0WvdfmEhAGNnncruYa54aJMsU3WpCoGhTuTcNWmKmsWkGoKbdIqcU4RWyGQw",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Norwich Railway Station, Station Approach, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.621056,
+          "lng": 1.298429
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.62254108029151,
+            "lng": 1.299746180291502
+          },
+          "southwest": {
+            "lat": 52.61984311970851,
+            "lng": 1.297048219708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "14c9f179cb5c514298b639fc1cea70192bc1a3cb",
+      "name": "A2B Taxis Norwich",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 360,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113457689643537494298/photos\">A2B Taxis Norwich</a>"
+          ],
+          "photo_reference": "CmRaAAAA3NeB_FmeySAMgjv2zuXE58v09oo1GsDI59rvx8IDIiyBdJl0DSLzLI_rl6AjnimfVxyVJNAQsA0RVmnqwsU9EHR4L66juIl_x30IAOFYvCB42TJcE8VwhqlTmplMCpYfEhDBFZrCdpqzX4jYWT0BRXWEGhTV2P2jq3q_WU9C_D7VPZ05ChXbNg",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJhyFf_-_j2UcRuVEYXK4KJiA",
+      "rating": 4.1,
+      "reference": "CmRRAAAAEmKFPxQVSePTLpg7BG4XwjxOEKySmNoh4lMMy_NSR-Btj0LjZ0KBoBsIweBAfQDfD2Yzd_YfgtH0Q7TKiBWgnZJd2t9N22RwxzceMgI0LxZRXkWqJf955kGDrYeBarB6EhDhDOnaWAgRiDzc5B52Onq2GhSrUR8Y_vw7-cpMxWC-V9cDQ-cmzQ",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Meadow View House, 191 Queen's Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.62923800000001,
+          "lng": 1.3023239
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.63053773029151,
+            "lng": 1.303625930291502
+          },
+          "southwest": {
+            "lat": 52.62783976970851,
+            "lng": 1.300927969708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "4024c80b03e99fbab3a4270b15e0babd25c485ed",
+      "name": "Beeline Taxis Norwich",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 400,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100012732215456188008/photos\">Beeline Taxis Norwich</a>"
+          ],
+          "photo_reference": "CmRaAAAAMgGcTFtTT8tCiLv22TPazTMD83LV_fLcgySLYtfLUg4lQddqBDcTNMRprvLttvpB6lkJFfKSKc7YxYTDoSZVq1GabxWTKGZF4BBHTYvxe1m_t9098c6cW6k1qejZsoFsEhAsj7OtKseldm_ICssuefucGhQpT2GMF6HC4ravDq-15QnlIy9ggA",
+          "width": 700
+        }
+      ],
+      "place_id": "ChIJW-7Crunj2UcRI149Mxv4jZc",
+      "rating": 1.9,
+      "reference": "CmRSAAAATcyBtIgE8j8v24dD1JHGjaGulRA8UCyhxV9zgpzPe3j3EQCPBNwLPj761HqmQBpJXNWX6PbrEgjKlrViiHxo4Aq6OxDfHqvD2Zy7KBQ25IdreoIgPXlfTLhzrpVHGCaCEhC7Znl_wcnIzeFPaDtV-dOwGhTdBwdsEcOQG642YKnZoBbqd8eL7Q",
+      "scope": "GOOGLE",
+      "types": [
+        "taxi_stand",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "70A Prince of Wales Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.675149,
+          "lng": 1.221279
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6765041302915,
+            "lng": 1.222461280291502
+          },
+          "southwest": {
+            "lat": 52.6738061697085,
+            "lng": 1.219763319708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "a2cae0437c4277857cf6b7f2ac2da87dc0cf6231",
+      "name": "Enterprise Taxis",
+      "photos": [
+        {
+          "height": 350,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114124632328855490796/photos\">Enterprise Taxis</a>"
+          ],
+          "photo_reference": "CmRaAAAACbMS7luRyjcAQEpEyGgVNSoJSWlYACtiWyJIKmIjGarjX1TbosDdCrHs_eJ15CVyAh3yCr-rK-hcTcpu7e7aU8ckxvqYEoBO-6fLTvfr5nj6ZPTAhkSbROuA-jduM0cHEhCPVSEYdamtTMbwNWxpRFFNGhRmVwxKYdCF5_mf1Kr-dHDauon9dQ",
+          "width": 682
+        }
+      ],
+      "place_id": "ChIJiTQinjjg2UcR5ejE2TDtPkQ",
+      "rating": 4.1,
+      "reference": "CmRRAAAAjqDLVsFlaj0gDIV4MaIpMafW0c8ulmd7k_ssezHUWfijCObSR5gstf2R44Ks9akm2avrhzoxGAfX9DT69jR81cFHYjx_OQTJcLLCqh4s9ShxJC4AKbISd2lKeLtHKcy7EhCS5WkWn4kVJlzPhzqNqoLLGhTFo3F5O_cPZEN5LA3b-4mq9rrgaw",
+      "scope": "GOOGLE",
+      "types": [
+        "taxi_stand",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "11, Drayton Industrial Estate, Taverham Road, Drayton, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.675149,
+          "lng": 1.221279
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.67694798029149,
+            "lng": 1.222543880291502
+          },
+          "southwest": {
+            "lat": 52.6742500197085,
+            "lng": 1.219845919708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "7a52face829c718a1d07bb9d262c8d318ef19c33",
+      "name": "1st Goldstar Taxis",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "place_id": "ChIJ8WifmDjg2UcRt-n-sxbTlA0",
+      "rating": 3.9,
+      "reference": "CmRRAAAAQbaw1b8Wm85hf7dhvdhuUdjA8sTotRN8-p6mdR697H8PVPbgyLLEsbo3AplHSWk8YiPVVmdWRWheJAxIjrpdHemEKDgij8RJhEGmQdnmuJerYiST1wkAUQrYijD-UJePEhAmwVGsC1nzoWh_I-SvcFAaGhTnI8qFK9PvLoI1s-kNXxezX-d6rQ",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Unit 6, Drayton Industrial Estate, Taverham Road, Drayton, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.65337940000001,
+          "lng": 1.309241
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6547021302915,
+            "lng": 1.310618630291502
+          },
+          "southwest": {
+            "lat": 52.6520041697085,
+            "lng": 1.307920669708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "3f3159fcbb0cc47a60b2343bdc9a37c4fd0a938a",
+      "name": "Elite Taxis",
+      "place_id": "ChIJx24_KDXi2UcRBT5t-qV5d0k",
+      "reference": "CmRRAAAAzJDePR5TsoHzm7-OgBST78AgJHB6LW8POobmiUb9gvSPm6f5LQ6d3dYp8J5QZHz79YR2CCT5cav2WETpSO5edPxggkObPmrI3Vez0Cw2AZ6VvEQhjeRTvs1diGOEECwGEhDlU_8SlkHE4BOf9l1wcwrjGhS6iXegB_G-jOYquaPTkWgjhUBblg",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "4 Neville Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6099091,
+          "lng": 1.25451
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6112580802915,
+            "lng": 1.255858980291502
+          },
+          "southwest": {
+            "lat": 52.6085601197085,
+            "lng": 1.253161019708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "945a8c801de69119b45bccc70d9b2694cc0a4e13",
+      "name": "A A Airport Taxis",
+      "place_id": "ChIJ6wmLWsvm2UcRXlQPCnQBMd0",
+      "reference": "CmRSAAAAdWCXHkiZrBS7d4JoUrPwJxgIRLrd11O05Ayb-j6KWnNEpS4VKhjW2obK1ouDpjsIVF6O_zthCQyYTyS2CfI20bLlMGU7LZhV_ZZqkuTNY97_acewXVWyGa7TCGm4qa40EhC5o6ht-JMN7HRJMi4m3WFYGhRNyBoF3OttMgaG2Yn0bKVWELCG7g",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "3 Rowan Way, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6370257,
+          "lng": 1.3025596
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6383818302915,
+            "lng": 1.303831180291502
+          },
+          "southwest": {
+            "lat": 52.6356838697085,
+            "lng": 1.301133219708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "2eee0fd87a5b802d144a92252b8799d556fd779e",
+      "name": "Snap Taxis",
+      "place_id": "ChIJ9TxpecTj2UcRw0dGF-M91W0",
+      "reference": "CmRRAAAAV0gkdAP_gG0Qn3EUat2TGcLY0nQucNCUInLRXSvC0JJo-TLwUTjAAOPrCXZ7pGySI9BUZDx9YfBZFujf2oiR8Jebj40hLBmk_oRgjUSvdTryg8yHrq2d5gRw69aGuAOqEhC9xXas_hEFy0LGB6OWt3sNGhR5fOLCNc6FZ5yX0_waizboM-bNCA",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "1A Silver Road, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6280867,
+          "lng": 1.3001443
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6294889802915,
+            "lng": 1.301460180291502
+          },
+          "southwest": {
+            "lat": 52.6267910197085,
+            "lng": 1.298762219708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "3673503f49c5a8e459cba03503cd641f92141d42",
+      "name": "Taxi Services",
+      "place_id": "ChIJk_m8--jj2UcRCjYsdPkDsMw",
+      "reference": "CmRSAAAAayITh9EPO7Xgd8kaOwDEBO6e7gpUwyB67EavaMhg2bqJIElsl2NR_3WNGXAhte89OJFUOVTTYyWwFkx0IMOa4O_hooIVWM0eCoX7GRMs0Pvpz5h7w9gw6Bdo2E5EIgnqEhCK6ncXfG86nuslbQiAAXmnGhQzP1Rc6h_bI_jRR4OEZ5Geb6IWtA",
+      "scope": "GOOGLE",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "7-13 Rose Lane, Norwich"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.6289661,
+          "lng": 1.2929203
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6303641302915,
+            "lng": 1.294274980291502
+          },
+          "southwest": {
+            "lat": 52.6276661697085,
+            "lng": 1.291577019708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "13dfa18d5f5d28d60a45b0b30431f89986b677ad",
+      "name": "Taxi rank",
+      "place_id": "ChIJL0MVKOfj2UcRsWJagAY7qZ8",
+      "rating": 3,
+      "reference": "CmRSAAAAa7ttDRKxyGBlH7kLGnWGS2Xcy4MYEdCAfABWGCxjWilj-4x9LJkXhxiK3ahNgftaA534tLS1cXGeJjYHefQKXD77hcRg7-lJiw2lraqMouGmKw6LSXAoBJiP-tKDGpIyEhBAQpwJFPb02wXjKxxqNLSzGhSktNdYqpIjyU9MgrnRM7rWZTuwxA",
+      "scope": "GOOGLE",
+      "types": [
+        "taxi_stand",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Guildhall Hill, Norwich"
+    }
+  ],
+  "status": "OK"
+}
