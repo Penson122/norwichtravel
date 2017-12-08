@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Platform } from 'react-native';
+import { Text, ScrollView, StyleSheet, Platform } from 'react-native';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
@@ -21,16 +21,16 @@ class Train extends React.Component {
     const datetime = getDateTime();
     this.state = {
       results: [],
-      originText: '',
-      destinationText: 'Norwich',
+      originText: 'Norwich',
+      destinationText: '',
       originTime: datetime[1],
       originDate: datetime[0],
       hasSelected: false,
       stations: [],
-      placeholder: { origin: 'Search for city', destination: 'Destination' },
+      placeholder: { origin: 'Origin', destination: 'Search for city' },
       originAutoComplete: [],
       destinationAutoComplete: [],
-      defaults: { destination: false, origin: true }
+      defaults: { destination: true, origin: false }
     };
     this.onOriginChange = this.onOriginChange.bind(this);
     this.onDestinationChange = this.onDestinationChange.bind(this);
@@ -128,6 +128,7 @@ class Train extends React.Component {
             this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime)
               .then(response => {
                 let results = response.filter(e => e.destination_name.includes(this.state.destinationText));
+                console.log(results);
                 this.setState({ results });
               });
           });
@@ -135,6 +136,7 @@ class Train extends React.Component {
       } else {
         this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime).then(response => {
           const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
+          console.log(results);
           this.setState({ results });
         });
       }
@@ -181,6 +183,7 @@ class Train extends React.Component {
   render () {
     return (
       <ScrollView style={styles.container}>
+        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Where to?</Text>
         <Search
           placeholder={this.state.placeholder}
           options={{ destination: true }}
