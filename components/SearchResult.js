@@ -7,11 +7,11 @@ import { Ionicons } from '@expo/vector-icons';
 const getIcon = (type) => {
   switch (type) {
     case 'bus':
-      return <Ionicons name='md-bus' size={22} color='green' />;
+      return <Ionicons name='md-bus' size={22} color='#0b7f30' />;
     case 'train':
-      return <Ionicons name='md-train' size={22} color='green' />;
+      return <Ionicons name='md-train' size={22} color='#0b7f30' />;
     case 'taxi':
-      return <Ionicons name='md-car' size={22} color='green' />;
+      return <Ionicons name='md-car' size={22} color='#0b7f30' />;
   }
 };
 
@@ -24,7 +24,12 @@ class SearchResult extends Component {
   }
   render () {
     return (
-      <View style={this.props.viewStyle}>
+      <View
+        style={this.props.viewStyle}
+        accessibilityLabel={Text.props.destination + ' leaving at ' + Text.props.time}
+        accessibilityTraits='text'
+        accessibilityComponentType='none'
+      >
         <Text style={
           [{ paddingLeft: 10 }, this.props.textStyle]
         }>{this.state.icon}  {this.props.line} {this.props.destination} </Text><Text

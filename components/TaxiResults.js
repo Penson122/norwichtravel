@@ -32,10 +32,22 @@ const TaxiResults = ({ taxis, handler }) => {
 };
 
 const TaxiResult = ({ name, rating, number, buttonHandler }) => (
-  <View style={styles.item} onMagicTap={() => buttonHandler(number)}>
+  <View
+    style={styles.item}
+    onMagicTap={() => buttonHandler(number)}
+    accessibilityLabel={'Company: ' + Text.name + 'Rating ' + Rating.rating}
+    accessibilityTraits='text'
+    accessibilityComponentType='none'
+  >
     <Text style={styles.text}>{name}</Text>
     { rating ? <Rating rating={rating} /> : null }
-    <CallButton handler={() => buttonHandler(number)} />
+    <View
+      accessibilityLabel={'Call ' + Text.name + CallButton.number}
+      accessibilityTraits='button'
+      accessibilityComponentType='button'
+    >
+      <CallButton handler={() => buttonHandler(number)} />
+    </View>
   </View>
 );
 

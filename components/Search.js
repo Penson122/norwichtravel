@@ -38,7 +38,12 @@ class Search extends Component {
   };
   render () {
     return (
-      <View style={styles.container}>
+      <View
+        style={styles.container}
+        accessibilityComponentType='button'
+        accessibilityTraits='button'
+        onMagicTap={Button.onPress}
+      >
         <View>
           <View style={styles.input}>
             <EnhancedTextInput
@@ -106,8 +111,8 @@ class Search extends Component {
         <Button
           onPress={() => this.props.submitHandler(this.props.originText, this.props.destinationText)}
           title='Submit'
-          color='#00A1FF'
-          accessibilityLabel='Submit search terms'
+          color='#0b7f30'
+          accessibilityLabel='Get results'
           style={{ width: 100 }}
         />
         <Ionicons

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView, StyleSheet, Platform } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Platform } from 'react-native';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
@@ -193,30 +193,39 @@ class Train extends React.Component {
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Where to?</Text>
-        <Search
-          placeholder={this.state.placeholder}
-          options={{ destination: true }}
-          submitHandler={this.searchHandler}
-          clearOriginText={this.clearOriginText}
-          clearDestinationText={this.clearDestinationText}
-          originText={this.state.originText}
-          destinationText={this.state.destinationText}
-          originAutoComplete={this.state.originAutoComplete}
-          destinationAutoComplete={this.state.destinationAutoComplete}
-          onOriginChange={this.onOriginChange}
-          onDestinationChange={this.onDestinationChange}
-          originTime={this.state.originTime}
-          originDate={this.state.originDate}
-          onOriginDateChange={this.onOriginDateChange}
-          onOriginTimeChange={this.onOriginTimeChange}
-          onOriginSelect={this.onOriginSelect}
-          onDestinationSelect={this.onDestinationSelect}
-          defaults={this.state.defaults}
-          switch={this.switchOriginDestination}
-        />
+        <View accessibilityTraits='text'>
+          <Text style={{ alignSelf: 'center', fontSize: 20 }}>Train Live Timetable</Text>
+        </View>
+        <View
+          accessibilityLabel='Search Button. Select to generate your Train Timetable.'
+          accessibilityComponentType='button'
+          accessibilityTraits='button'
+          // onMagicTap={Search.submitHandler}
+        >
+          <Search
+            placeholder={this.state.placeholder}
+            options={{ destination: true }}
+            submitHandler={this.searchHandler}
+            clearOriginText={this.clearOriginText}
+            clearDestinationText={this.clearDestinationText}
+            originText={this.state.originText}
+            destinationText={this.state.destinationText}
+            originAutoComplete={this.state.originAutoComplete}
+            destinationAutoComplete={this.state.destinationAutoComplete}
+            onOriginChange={this.onOriginChange}
+            onDestinationChange={this.onDestinationChange}
+            originTime={this.state.originTime}
+            originDate={this.state.originDate}
+            onOriginDateChange={this.onOriginDateChange}
+            onOriginTimeChange={this.onOriginTimeChange}
+            onOriginSelect={this.onOriginSelect}
+            onDestinationSelect={this.onDestinationSelect}
+            defaults={this.state.defaults}
+            switch={this.switchOriginDestination}
+          />
+        </View>
         {
-          this.state.noResults ? <Text style={styles.results}>No Results Found</Text> : null
+          this.state.noResults ? <View accessibilityTraits='text'><Text style={styles.results}>No Results Found</Text></View> : null
         }
         <SearchResults
           results={this.state.results}
