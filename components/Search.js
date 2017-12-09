@@ -111,6 +111,7 @@ class Search extends Component {
           style={{ width: 100 }}
         />
         <Ionicons
+          accessibilityTraits='button'
           name={this.state.expandedIcon}
           size={40}
           style={{ alignSelf: 'center' }}

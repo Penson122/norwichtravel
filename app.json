@@ -5,6 +5,7 @@
     "slug": "norwich-travel",
     "description": "Travel Information for the Norwich, Norfolk, UK area",
     "privacy": "unlisted",
+    "orientation": "portrait",
     "androidStatusBar": {
       "barStyle": "dark-content",
     }
