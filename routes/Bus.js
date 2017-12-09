@@ -32,6 +32,7 @@ class Bus extends Component {
       originText: '',
       originTime: datetime[1],
       originDate: datetime[0],
+      canSearch: false,
       hasSelected: false,
       stops: [],
       noResults: false,
@@ -99,13 +100,13 @@ class Bus extends Component {
           this.setState({
             originAutoComplete: stops,
             stops: response.stops,
-            hasSelected: true
+            hasSelected: true,
           });
         });
       });
     }
     if (this.state.hasSelected) {
-      this.setState({ hasSelected: false });
+      this.setState({ hasSelected: false, canSearch: true });
     }
   };
 
@@ -163,6 +164,7 @@ class Bus extends Component {
           placeholder={this.state.placeholder}
           defaults={{ origin: true }}
           getLocation={this.getLocation}
+          canSearch={!this.state.canSearch}
         />
         {
           this.state.noResults

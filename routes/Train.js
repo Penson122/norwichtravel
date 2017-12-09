@@ -34,6 +34,7 @@ class Train extends React.Component {
       originTime: datetime[1],
       originDate: datetime[0],
       hasSelected: false,
+      canSearch: true,
       stations: [],
       placeholder: { origin: 'Origin', destination: 'Search for city' },
       originAutoComplete: [],
@@ -113,7 +114,7 @@ class Train extends React.Component {
       });
     }
     if (this.state.hasSelected) {
-      this.setState({ hasSelected: false });
+      this.setState({ hasSelected: false, canSearch: true });
     }
   };
 
@@ -144,11 +145,12 @@ class Train extends React.Component {
       });
     }
     if (this.state.hasSelected) {
-      this.setState({ hasSelected: false });
+      this.setState({ hasSelected: false, canSearch: true });
     }
   }
 
   switchOriginDestination () {
+    console.log('SWITCH!');
     const origin = this.state.originText;
     this.setState({
       originText: this.state.destinationText,
@@ -222,11 +224,19 @@ class Train extends React.Component {
   }
 
   clearOriginText () {
-    this.setState({ originText: '', originAutoComplete: [] });
+    this.setState((prevState, props) => {
+      return prevState.destinationText.length === 0
+        ? ({ originText: '', originAutoComplete: [], canSearch: false })
+        : ({ originText: '', originAutoComplete: [] });
+    });
   }
 
   clearDestinationText () {
-    this.setState({ destinationText: '', destinationAutoComplete: [] });
+    this.setState((prevState, props) => {
+      return prevState.originText.length === 0
+        ? ({ destinationText: '', destinationAutoComplete: [], canSearch: false })
+        : ({ destinationText: '', destinationAutoComplete: [] });
+    });
   }
 
   render () {
@@ -252,7 +262,8 @@ class Train extends React.Component {
           onOriginSelect={this.onOriginSelect}
           onDestinationSelect={this.onDestinationSelect}
           defaults={this.state.defaults}
-          switch={this.switchOriginDestination}
+          canSearch={!this.state.canSearch}
+          onSwitch={this.switchOriginDestination}
           getLocation={this.getLocation}
         />
         {
