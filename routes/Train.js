@@ -150,7 +150,6 @@ class Train extends React.Component {
   }
 
   switchOriginDestination () {
-    console.log('SWITCH!');
     const origin = this.state.originText;
     this.setState({
       originText: this.state.destinationText,
