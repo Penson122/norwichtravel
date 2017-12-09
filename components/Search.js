@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     zIndex: 10
   },
   button: {
-    width: 5
+    width: 5,
+    backgroundColor: '#0b7f30',
+    color: '#ffffff'
   }
 });
 
@@ -42,7 +44,6 @@ class Search extends Component {
         style={styles.container}
         accessibilityComponentType='button'
         accessibilityTraits='button'
-        onMagicTap={Button.onPress}
       >
         <View>
           <View style={styles.input}>

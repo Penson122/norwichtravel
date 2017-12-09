@@ -197,10 +197,10 @@ class Train extends React.Component {
           <Text style={{ alignSelf: 'center', fontSize: 20 }}>Train Live Timetable</Text>
         </View>
         <View
-          accessibilityLabel='Search Button. Select to generate your Train Timetable.'
+          accessibilityLabel='Search Button'
           accessibilityComponentType='button'
           accessibilityTraits='button'
-          // onMagicTap={Search.submitHandler}
+          onMagicTap={() => this.submitHandler(this.state.originText, this.state.destinationText)}
         >
           <Search
             placeholder={this.state.placeholder}

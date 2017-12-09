@@ -121,7 +121,7 @@ class Bus extends Component {
     return (
       <ScrollView style={styles.container} accessibile>
         <View
-          accessibilityLabel='Live Bus Timetable. Please enter your road in the textbox below. Then select your stop in the list. Finally press the select button. Your bus times will be below.'
+          accessibilityLabel='Search your road'
           accessibilityTraits='text'
           accessibilityComponentType='none'
           importantForAccessibility='yes'
@@ -129,10 +129,10 @@ class Bus extends Component {
           <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Bus Timetable</Text>
         </View>
         <View
-          accessibilityLabel='Search Button. Select to generate your Bus Timetable.'
+          accessibilityLabel='Search Button'
           accessibilityComponentType='button'
           accessibilityTraits='button'
-          // onMagicTap={Search.submitHandler}
+          onMagicTap={() => this.submitHandler(this.state.originText)}
         >
           <Search
             submitHandler={this.searchHandler}
