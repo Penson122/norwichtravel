@@ -1,4 +1,6 @@
 const Express = require('express');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const app = Express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +27,9 @@ const getPlacesParam = (type, query) => (
   // eslint-disable-next-line
   `/maps/api/place/autocomplete/json?key=${process.env.GOOGLE_MAPS_KEY}&types=${type}&input=${type === 'address' ? 'uk, norwich ' : 'uk, '}${query}`
 );
+
+app.use(helmet());
+app.use(morgan('combined'));
 
 app.get('/autocomplete/:type/:searchTerms', (req, res, next) => {
   const type = req.params.type === 'bus' ? 'address' : '(cities)';
@@ -117,16 +122,8 @@ app.get('/bus/:station/:date/:time', (req, res, next) => {
 });
 
 app.get('/taxis/', (req, res, next) => {
-  res.json(getTaxiList());
+  res.json(taxis);
 });
-
-const getTaxiList = (callback) => {
-  return taxis.results.map(e => ({
-    name: e.name,
-    number: e.number,
-    rating: e.rating
-  })).sort((a, b) => b.rating - a.rating);
-};
 
 const getTrain = (cb, station, date, time) => {
   const dateTime = getCurrentDateTime();
@@ -215,16 +212,6 @@ const flatMapTransportResults = (results) => {
   return list;
 };
 
-taxis.results.forEach(e => {
-  const url = `/maps/api/place/details/json?key=${process.env.GOOGLE_MAPS_KEY}&placeid=${e.place_id}`;
-  GoogleClient.get(url, (err, req, resp, ob) => {
-    if (err) console.log(err);
-    else {
-      e.number = ob.result.formatted_phone_number;
-      e.rating = ob.result.rating;
-    }
-  });
-});
 console.log('listening on port : ', PORT);
 app.listen(PORT);
 

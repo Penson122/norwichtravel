@@ -14,7 +14,9 @@
     "chai-http": "^3.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "helmet": "^3.9.0",
     "mocha": "^4.0.1",
+    "morgan": "^1.9.0",
     "restify-clients": "^1.5.2"
   }
 }

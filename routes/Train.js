@@ -4,7 +4,7 @@ import { Text, ScrollView, StyleSheet, Platform } from 'react-native';
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
-import { getAutoCompleteList, getLatLng, getDateTime } from '../util';
+import { getAutoCompleteList, getLatLng, getDateTime, getFromAPI } from '../util';
 import { NORWICH_API } from '../constants.js';
 
 const styles = StyleSheet.create({
@@ -36,7 +36,6 @@ class Train extends React.Component {
     this.onDestinationChange = this.onDestinationChange.bind(this);
     this.onOriginSelect = this.onOriginSelect.bind(this);
     this.onDestinationSelect = this.onDestinationSelect.bind(this);
-    this.getFromAPI = this.getFromAPI.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.switchOriginDestination = this.switchOriginDestination.bind(this);
     this.onOriginDateChange = this.onOriginDateChange.bind(this);
@@ -61,7 +60,7 @@ class Train extends React.Component {
     if (!this.state.hasSelected) {
       getLatLng(text).then(geocode => {
         const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
-        this.getFromAPI(url).then(response => {
+        getFromAPI(url).then(response => {
           const stations = response.stations.map((s, i) => ({ description: s.name, key: i }));
           this.setState({
             originAutoComplete: stations,
@@ -92,7 +91,7 @@ class Train extends React.Component {
     if (!this.state.hasSelected) {
       getLatLng(text).then(geocode => {
         const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
-        this.getFromAPI(url).then(response => {
+        getFromAPI(url).then(response => {
           const stations = response.stations.map((s, i) => ({ description: s.name, key: i }));
           this.setState({
             destinationAutoComplete: stations,
@@ -123,7 +122,7 @@ class Train extends React.Component {
         // hax
         getLatLng(`${origin}, UK`).then(geocode => {
           const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
-          this.getFromAPI(url).then(response => {
+          getFromAPI(url).then(response => {
             const originStation = response.stations.find(s => s.name.includes(origin));
             this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime)
               .then(response => {
@@ -147,7 +146,7 @@ class Train extends React.Component {
 
   getTimeTable (stop, date, time) {
     const url = `${NORWICH_API}/train/${stop}/${date}/${time}`;
-    return this.getFromAPI(url);
+    return getFromAPI(url);
   };
 
   getFromAPI (url) {
