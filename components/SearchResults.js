@@ -27,15 +27,16 @@ class SearchResults extends Component {
   render () {
     return (
       <View style={this.props.style} >
-        { this.props.results.map((r, i) => <SearchResult
-          viewStyle={styles.item}
-          textStyle={styles.text}
-          key={i}
-          type={this.props.type}
-          line={r[this.props.lineKey]}
-          destination={r[this.props.destinationKey]}
-          time={r.aimed_departure_time}
-        />)}
+        { this.props.results.map((r, i) =>
+          <SearchResult
+            viewStyle={styles.item}
+            textStyle={styles.text}
+            key={i}
+            type={this.props.type}
+            line={r[this.props.lineKey]}
+            destination={r[this.props.destinationKey]}
+            time={r.aimed_departure_time}
+          />)}
       </View>
     );
   }

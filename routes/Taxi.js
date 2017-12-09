@@ -1,5 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import React, { Component } from 'react';
+import { ScrollView, StyleSheet, Platform } from 'react-native';
+
+import { phonecall } from 'react-native-communications';
+
+import TaxiResults from '../components/TaxiResults';
+
+import { getFromAPI } from '../util.js';
+import { NORWICH_API } from '../constants.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,12 +16,35 @@ const styles = StyleSheet.create({
   },
 });
 
-const Taxi = () => {
-  return (
-    <View style={styles.container}>
-      <Text>This is the Taxi page</Text>
-    </View>
-  );
+class Taxi extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      taxis: []
+    };
+    this.getTaxis = this.getTaxis.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+    this.getTaxis();
+  }
+
+  getTaxis () {
+    const url = `${NORWICH_API}/taxis`;
+    getFromAPI(url).then(res => {
+      this.setState({ taxis: res });
+    });
+  }
+
+  handleSelect (number) {
+    phonecall(number, false);
+  }
+
+  render () {
+    return (
+      <ScrollView style={styles.container}>
+        <TaxiResults taxis={this.state.taxis} handler={this.handleSelect} />
+      </ScrollView>
+    );
+  }
 };
 
 export default Taxi;

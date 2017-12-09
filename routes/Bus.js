@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet, Platform, Text } from 'react-native';
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
-import { getAutoCompleteList, getLatLng, getDateTime } from '../util';
+import { getAutoCompleteList, getLatLng, getDateTime, getFromAPI } from '../util';
 
 import { NORWICH_API } from '../constants.js';
 
@@ -35,7 +35,6 @@ class Bus extends Component {
         destination: false
       }
     };
-    this.getFromAPI = this.getFromAPI.bind(this);
     this.getTimeTable = this.getTimeTable.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.originChange = this.originChange.bind(this);
@@ -61,7 +60,7 @@ class Bus extends Component {
     if (!this.state.hasSelected) {
       getLatLng(text).then(geocode => {
         const url = NORWICH_API + '/bus/near/' + geocode.lat + '/' + geocode.lng;
-        this.getFromAPI(url).then(response => {
+        getFromAPI(url).then(response => {
           const stops = response.stops.map((s, i) => ({ description: s.name, key: i }));
           this.setState({
             originAutoComplete: stops,
@@ -76,29 +75,21 @@ class Bus extends Component {
     }
   };
 
-  getFromAPI (url) {
-    return fetch(url)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        return responseJson;
-      })
-      .catch((error) => {
-        // create warning service is down
-        console.error(error);
-      });
-  };
-
   getTimeTable (stop, date, time) {
     const url = `${NORWICH_API}/bus/${stop}/${date}/${time}`;
-    return this.getFromAPI(url);
+    return getFromAPI(url);
   };
 
   searchHandler (origin) {
     if (origin !== undefined) {
       const originStop = this.state.stops.find(s => s.name === origin);
-      this.getTimeTable(originStop.atcocode, this.state.originDate, this.state.originTime).then(response => {
-        this.setState({ results: response });
-      });
+      if (originStop !== undefined) {
+        this.getTimeTable(originStop.atcocode, this.state.originDate, this.state.originTime).then(response => {
+          this.setState({ results: response });
+        });
+      } else {
+        this.setState({ placeholder: { origin: 'Please enter road' } });
+      }
     }
   };
 

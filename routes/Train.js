@@ -1,10 +1,10 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Platform } from 'react-native';
+import { Text, ScrollView, StyleSheet, Platform } from 'react-native';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
-import { getAutoCompleteList, getLatLng, getDateTime } from '../util';
+import { getAutoCompleteList, getLatLng, getDateTime, getFromAPI } from '../util';
 import { NORWICH_API } from '../constants.js';
 
 const styles = StyleSheet.create({
@@ -21,22 +21,21 @@ class Train extends React.Component {
     const datetime = getDateTime();
     this.state = {
       results: [],
-      originText: '',
-      destinationText: 'Norwich',
+      originText: 'Norwich',
+      destinationText: '',
       originTime: datetime[1],
       originDate: datetime[0],
       hasSelected: false,
       stations: [],
-      placeholder: { origin: 'Search for city', destination: 'Destination' },
+      placeholder: { origin: 'Origin', destination: 'Search for city' },
       originAutoComplete: [],
       destinationAutoComplete: [],
-      defaults: { destination: false, origin: true }
+      defaults: { destination: true, origin: false }
     };
     this.onOriginChange = this.onOriginChange.bind(this);
     this.onDestinationChange = this.onDestinationChange.bind(this);
     this.onOriginSelect = this.onOriginSelect.bind(this);
     this.onDestinationSelect = this.onDestinationSelect.bind(this);
-    this.getFromAPI = this.getFromAPI.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.switchOriginDestination = this.switchOriginDestination.bind(this);
     this.onOriginDateChange = this.onOriginDateChange.bind(this);
@@ -61,7 +60,7 @@ class Train extends React.Component {
     if (!this.state.hasSelected) {
       getLatLng(text).then(geocode => {
         const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
-        this.getFromAPI(url).then(response => {
+        getFromAPI(url).then(response => {
           const stations = response.stations.map((s, i) => ({ description: s.name, key: i }));
           this.setState({
             originAutoComplete: stations,
@@ -92,7 +91,7 @@ class Train extends React.Component {
     if (!this.state.hasSelected) {
       getLatLng(text).then(geocode => {
         const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
-        this.getFromAPI(url).then(response => {
+        getFromAPI(url).then(response => {
           const stations = response.stations.map((s, i) => ({ description: s.name, key: i }));
           this.setState({
             destinationAutoComplete: stations,
@@ -123,11 +122,12 @@ class Train extends React.Component {
         // hax
         getLatLng(`${origin}, UK`).then(geocode => {
           const url = NORWICH_API + '/train/near/' + geocode.lat + '/' + geocode.lng;
-          this.getFromAPI(url).then(response => {
+          getFromAPI(url).then(response => {
             const originStation = response.stations.find(s => s.name.includes(origin));
             this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime)
               .then(response => {
                 let results = response.filter(e => e.destination_name.includes(this.state.destinationText));
+                console.log(results);
                 this.setState({ results });
               });
           });
@@ -135,6 +135,7 @@ class Train extends React.Component {
       } else {
         this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime).then(response => {
           const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
+          console.log(results);
           this.setState({ results });
         });
       }
@@ -145,7 +146,7 @@ class Train extends React.Component {
 
   getTimeTable (stop, date, time) {
     const url = `${NORWICH_API}/train/${stop}/${date}/${time}`;
-    return this.getFromAPI(url);
+    return getFromAPI(url);
   };
 
   getFromAPI (url) {
@@ -181,6 +182,7 @@ class Train extends React.Component {
   render () {
     return (
       <ScrollView style={styles.container}>
+        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Where to?</Text>
         <Search
           placeholder={this.state.placeholder}
           options={{ destination: true }}
