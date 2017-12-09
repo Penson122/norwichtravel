@@ -26,7 +26,7 @@ class SearchResult extends Component {
     return (
       <View
         style={this.props.viewStyle}
-        accessibilityLabel={Text.props.destination + ' leaving at ' + Text.props.time}
+        accessibilityLabel={this.props.destination + ' leaving at ' + this.props.time}
         accessibilityTraits='text'
         accessibilityComponentType='none'
       >
