@@ -70,7 +70,7 @@ class Search extends Component {
               name='swap-vertical'
               size={40}
               color='black'
-              onPress={this.props.switch}
+              onPress={this.props.onSwitch}
             />
             : null}
           {
@@ -119,6 +119,7 @@ class Search extends Component {
           title='Submit'
           color='#00A1FF'
           accessibilityLabel='Submit search terms'
+          disabled={this.props.canSearch}
           style={{ width: 100 }}
         />
         <Ionicons
@@ -168,8 +169,9 @@ Search.propTypes = {
   destinationText: PropTypes.string,
   originTime: PropTypes.string,
   originDate: PropTypes.string,
-  switch: PropTypes.func,
-  getLocation: PropTypes.func.isRequired
+  canSearch: PropTypes.bool.isRequired,
+  onSwitch: PropTypes.func,
+  getLocation: PropTypes.func.isRequired,
 };
 
 export default Search;
