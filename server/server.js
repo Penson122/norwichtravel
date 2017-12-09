@@ -1,12 +1,13 @@
 const Express = require('express');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const app = Express();
 const PORT = process.env.PORT || 3000;
 
 require('dotenv').config();
 
 const clients = require('restify-clients');
-
-//
+const taxis = require('./taxis.json');
 
 const TRNSPRT_API = 'https://transportapi.com/';
 const GOOGLE_API = 'https://maps.googleapis.com/';
@@ -26,6 +27,9 @@ const getPlacesParam = (type, query) => (
   // eslint-disable-next-line
   `/maps/api/place/autocomplete/json?key=${process.env.GOOGLE_MAPS_KEY}&types=${type}&input=${type === 'address' ? 'uk, norwich ' : 'uk, '}${query}`
 );
+
+app.use(helmet());
+app.use(morgan('combined'));
 
 app.get('/autocomplete/:type/:searchTerms', (req, res, next) => {
   const type = req.params.type === 'bus' ? 'address' : '(cities)';
@@ -115,6 +119,10 @@ app.get('/bus/:station/:date/:time', (req, res, next) => {
     res.json(results);
   };
   getBus(callback, req.params.station, req.params.date, req.params.time);
+});
+
+app.get('/taxis/', (req, res, next) => {
+  res.json(taxis);
 });
 
 const getTrain = (cb, station, date, time) => {
