@@ -120,7 +120,7 @@ class Bus extends Component {
       const originStop = this.state.stops.find(s => s.name === origin);
       if (originStop !== undefined) {
         this.getTimeTable(originStop.atcocode, this.state.originDate, this.state.originTime).then(response => {
-          this.setState({ results: response });
+          this.setState({ results: response, noResults: false });
           if (response.length === 0) {
             this.setState({ noResults: true });
           }

@@ -1,10 +1,19 @@
 import React from 'react';
-import { Text, FlatList, ViewPropTypes } from 'react-native';
+import { Text, FlatList, ViewPropTypes, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+
+const styles = StyleSheet.create({
+  text: {
+    marginBottom: '1.5%',
+    textAlign: 'center',
+    fontSize: 22
+  }
+});
 
 const AutoComplete = ({ listItems, selectionHandler, style }) => {
   return (
     <FlatList style={style}
+      onMagicTap={() => selectionHandler(listItems[0].description)}
       data={listItems}
       renderItem={({ item }) => <AutoCompleteItem select={selectionHandler} text={item.description} key={item.key} />}
     />
@@ -13,7 +22,7 @@ const AutoComplete = ({ listItems, selectionHandler, style }) => {
 
 const AutoCompleteItem = ({ select, text }) => {
   return (
-    <Text onPress={() => select(text)}>{text}</Text>
+    <Text style={styles.text} onPress={() => select(text)}>{text}</Text>
   );
 };
 
