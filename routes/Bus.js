@@ -152,7 +152,12 @@ class Bus extends Component {
         </View>
         {
           this.state.noResults
-            ? <View accessibilityComponentType='none' accessibilityLabel='No Bus times found' accessibilityTraits='text'><Text style={styles.results}>No Bus times found</Text></View>
+            ? <View
+              accessibilityComponentType='none'
+              accessibilityLabel='No Bus times found'
+              accessibilityTraits='text'>
+              <Text style={styles.results}>No Bus times found</Text>
+            </View>
             : null
         }
         <SearchResults

@@ -225,7 +225,9 @@ class Train extends React.Component {
           />
         </View>
         {
-          this.state.noResults ? <View accessibilityTraits='text'><Text style={styles.results}>No Results Found</Text></View> : null
+          this.state.noResults
+            ? <View accessibilityTraits='text'><Text style={styles.results}>No Results Found</Text></View>
+            : null
         }
         <SearchResults
           results={this.state.results}
