@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, ScrollView, StyleSheet, Platform } from 'react-native';
+import { Location, Permissions } from 'expo';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
@@ -33,6 +34,7 @@ class Train extends React.Component {
       originTime: datetime[1],
       originDate: datetime[0],
       hasSelected: false,
+      canSearch: true,
       stations: [],
       placeholder: { origin: 'Origin', destination: 'Search for city' },
       originAutoComplete: [],
@@ -49,7 +51,41 @@ class Train extends React.Component {
     this.onOriginTimeChange = this.onOriginTimeChange.bind(this);
     this.clearOriginText = this.clearOriginText.bind(this);
     this.clearDestinationText = this.clearDestinationText.bind(this);
+    this.getLocation = this.getLocation.bind(this);
+    this.getPermission = this.getPermission.bind(this);
   };
+
+  componentWillMount () {
+    this.getPermission();
+  }
+
+  getPermission = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    this.setState({ permission: status });
+  };
+
+  getLocation = async (type) => {
+    if (this.state.permission === 'granted') {
+      let location = await Location.getCurrentPositionAsync({});
+      const url = NORWICH_API + '/train/near/' + location.coords.latitude + '/' + location.coords.longitude;
+      getFromAPI(url).then(response => {
+        const stations = response.stations.map((s, i) => ({ description: s.name, key: i }));
+        if (type === 'origin') {
+          this.setState({
+            originAutoComplete: stations,
+            stations: response.stations,
+            hasSelected: true
+          });
+        }
+        if (type === 'destination') {
+          this.setState({
+            destinationAutoComplete: stations,
+            hasSelected: true,
+            stations: response.stations });
+        }
+      });
+    }
+  }
 
   onOriginChange (text) {
     this.setState({ originText: text });
@@ -78,7 +114,7 @@ class Train extends React.Component {
       });
     }
     if (this.state.hasSelected) {
-      this.setState({ hasSelected: false });
+      this.setState({ hasSelected: false, canSearch: true });
     }
   };
 
@@ -109,11 +145,12 @@ class Train extends React.Component {
       });
     }
     if (this.state.hasSelected) {
-      this.setState({ hasSelected: false });
+      this.setState({ hasSelected: false, canSearch: true });
     }
   }
 
   switchOriginDestination () {
+    console.log('SWITCH!');
     const origin = this.state.originText;
     this.setState({
       originText: this.state.destinationText,
@@ -124,7 +161,7 @@ class Train extends React.Component {
 
   searchHandler (origin, destination) {
     if (origin.length > 0) {
-      const originStation = this.state.stations.find(s => s.name === origin);
+      const originStation = this.state.stations.find(s => s.name.includes(origin));
       if (originStation === undefined) {
         // hax
         getLatLng(`${origin}, UK`).then(geocode => {
@@ -137,6 +174,8 @@ class Train extends React.Component {
                 this.setState({ results });
                 if (results.length === 0) {
                   this.setState({ noResults: true });
+                } else {
+                  this.setState({ noResults: false });
                 }
               });
           });
@@ -147,6 +186,8 @@ class Train extends React.Component {
           this.setState({ results });
           if (results.length === 0) {
             this.setState({ noResults: true });
+          } else {
+            this.setState({ noResults: false });
           }
         });
       }
@@ -183,11 +224,19 @@ class Train extends React.Component {
   }
 
   clearOriginText () {
-    this.setState({ originText: '', originAutoComplete: [] });
+    this.setState((prevState, props) => {
+      return prevState.destinationText.length === 0
+        ? ({ originText: '', originAutoComplete: [], canSearch: false })
+        : ({ originText: '', originAutoComplete: [] });
+    });
   }
 
   clearDestinationText () {
-    this.setState({ destinationText: '', destinationAutoComplete: [] });
+    this.setState((prevState, props) => {
+      return prevState.originText.length === 0
+        ? ({ destinationText: '', destinationAutoComplete: [], canSearch: false })
+        : ({ destinationText: '', destinationAutoComplete: [] });
+    });
   }
 
   render () {
@@ -213,7 +262,9 @@ class Train extends React.Component {
           onOriginSelect={this.onOriginSelect}
           onDestinationSelect={this.onDestinationSelect}
           defaults={this.state.defaults}
-          switch={this.switchOriginDestination}
+          canSearch={!this.state.canSearch}
+          onSwitch={this.switchOriginDestination}
+          getLocation={this.getLocation}
         />
         {
           this.state.noResults ? <Text style={styles.results}>No Results Found</Text> : null
