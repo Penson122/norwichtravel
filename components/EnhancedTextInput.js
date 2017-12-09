@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   input: {
-    width: '90%',
+    width: '85%',
     fontSize: 20
   }
 });
 
-const EnhancedTextInput = ({ children, buttonHandler, value, onChangeText, placeholder, editable = true, }) => {
+const EnhancedTextInput = ({ children, value, onChangeText, placeholder, editable = true, }) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -24,15 +24,12 @@ const EnhancedTextInput = ({ children, buttonHandler, value, onChangeText, place
         value={value}
         underlineColorAndroid='transparent'
       />
-      <TouchableOpacity onPress={buttonHandler}>
-        {children}
-      </TouchableOpacity>
+      {children}
     </View>
   );
 };
 
 EnhancedTextInput.propTypes = {
-  buttonHandler: PropTypes.func,
   value: PropTypes.string,
   onChangeText: PropTypes.func,
   children: PropTypes.node,
