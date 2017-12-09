@@ -13,6 +13,12 @@ const styles = StyleSheet.create({
     marginRight: '1%',
     marginLeft: '1%'
   },
+  results: {
+    fontSize: 28,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: '15%'
+  }
 });
 
 class Train extends React.Component {
@@ -21,6 +27,7 @@ class Train extends React.Component {
     const datetime = getDateTime();
     this.state = {
       results: [],
+      noResults: false,
       originText: 'Norwich',
       destinationText: '',
       originTime: datetime[1],
@@ -127,16 +134,20 @@ class Train extends React.Component {
             this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime)
               .then(response => {
                 let results = response.filter(e => e.destination_name.includes(this.state.destinationText));
-                console.log(results);
                 this.setState({ results });
+                if (results.length === 0) {
+                  this.setState({ noResults: true });
+                }
               });
           });
         });
       } else {
         this.getTimeTable(originStation.station_code, this.state.originDate, this.state.originTime).then(response => {
           const results = response.filter(e => e.destination_name.includes(this.state.destinationText));
-          console.log(results);
           this.setState({ results });
+          if (results.length === 0) {
+            this.setState({ noResults: true });
+          }
         });
       }
     } else {
@@ -204,6 +215,9 @@ class Train extends React.Component {
           defaults={this.state.defaults}
           switch={this.switchOriginDestination}
         />
+        {
+          this.state.noResults ? <Text style={styles.results}>No Results Found</Text> : null
+        }
         <SearchResults
           results={this.state.results}
           type='train'
