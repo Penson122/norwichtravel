@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
     marginRight: '1%',
     marginLeft: '1%'
   },
+  results: {
+    fontSize: 28,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: '15%'
+  }
 });
 
 class Bus extends Component {
@@ -27,6 +33,7 @@ class Bus extends Component {
       originDate: datetime[0],
       hasSelected: false,
       stops: [],
+      noResults: false,
       placeholder: {
         origin: 'Search for road...'
       },
@@ -86,6 +93,9 @@ class Bus extends Component {
       if (originStop !== undefined) {
         this.getTimeTable(originStop.atcocode, this.state.originDate, this.state.originTime).then(response => {
           this.setState({ results: response });
+          if (response.length === 0) {
+            this.setState({ noResults: true });
+          }
         });
       } else {
         this.setState({ placeholder: { origin: 'Please enter road' } });
@@ -109,7 +119,7 @@ class Bus extends Component {
 
   render () {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} accessibile>
         <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Updates</Text>
         <Search
           submitHandler={this.searchHandler}
@@ -126,6 +136,11 @@ class Bus extends Component {
           placeholder={this.state.placeholder}
           defaults={{ origin: true }}
         />
+        {
+          this.state.noResults
+            ? <Text style={styles.results}>No Results Found</Text>
+            : null
+        }
         <SearchResults
           results={this.state.results}
           type='bus'
