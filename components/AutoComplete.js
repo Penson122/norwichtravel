@@ -13,7 +13,14 @@ const AutoComplete = ({ listItems, selectionHandler, style }) => {
 
 const AutoCompleteItem = ({ select, text }) => {
   return (
-    <Text onPress={() => select(text)}>{text}</Text>
+    <View
+      accessibilityTraits='button'
+      importantForAccessibility='yes'
+      accessibilityComponentType='button'
+      accessibilityLabel={this.text}
+    >
+      <Text onPress={() => select(text)}>{text}</Text>
+    </View>
   );
 };
 

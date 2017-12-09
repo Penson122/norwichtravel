@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Platform, Text } from 'react-native';
+import { View, ScrollView, StyleSheet, Platform, Text } from 'react-native';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
@@ -35,7 +35,7 @@ class Bus extends Component {
       stops: [],
       noResults: false,
       placeholder: {
-        origin: 'Search for road...'
+        origin: 'Please enter your road'
       },
       originAutoComplete: [],
       options: {
@@ -98,7 +98,7 @@ class Bus extends Component {
           }
         });
       } else {
-        this.setState({ placeholder: { origin: 'Please enter road' } });
+        this.setState({ placeholder: { origin: 'Please enter your road' } });
       }
     }
   };
@@ -120,25 +120,39 @@ class Bus extends Component {
   render () {
     return (
       <ScrollView style={styles.container} accessibile>
-        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Updates</Text>
-        <Search
-          submitHandler={this.searchHandler}
-          clearOriginText={this.clearOriginText}
-          originText={this.state.originText}
-          originTime={this.state.originTime}
-          originDate={this.state.originDate}
-          onOriginChange={this.originChange}
-          onOriginDateChange={this.onDateChange}
-          onOriginTimeChange={this.onTimeChange}
-          originAutoComplete={this.state.originAutoComplete}
-          onOriginSelect={this.onOriginSelect}
-          options={this.state.options}
-          placeholder={this.state.placeholder}
-          defaults={{ origin: true }}
-        />
+        <View
+          accessibilityLabel='Live Bus Timetable. Please enter your road in the textbox below. Then select your stop in the list. Finally press the select button. Your bus times will be below.'
+          accessibilityTraits='text'
+          accessibilityComponentType='none'
+          importantForAccessibility='yes'
+        >
+          <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Bus Timetable</Text>
+        </View>
+        <View
+          accessibilityLabel='Search Button. Select to generate your Bus Timetable.'
+          accessibilityComponentType='button'
+          accessibilityTraits='button'
+          // onMagicTap={Search.submitHandler}
+        >
+          <Search
+            submitHandler={this.searchHandler}
+            clearOriginText={this.clearOriginText}
+            originText={this.state.originText}
+            originTime={this.state.originTime}
+            originDate={this.state.originDate}
+            onOriginChange={this.originChange}
+            onOriginDateChange={this.onDateChange}
+            onOriginTimeChange={this.onTimeChange}
+            originAutoComplete={this.state.originAutoComplete}
+            onOriginSelect={this.onOriginSelect}
+            options={this.state.options}
+            placeholder={this.state.placeholder}
+            defaults={{ origin: true }}
+          />
+        </View>
         {
           this.state.noResults
-            ? <Text style={styles.results}>No Results Found</Text>
+            ? <View accessibilityComponentType='none' accessibilityLabel='No Bus times found' accessibilityTraits='text'><Text style={styles.results}>No Bus times found</Text></View>
             : null
         }
         <SearchResults
