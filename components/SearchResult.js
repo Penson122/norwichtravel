@@ -8,6 +8,8 @@ const getIcon = (type) => {
   switch (type) {
     case 'bus':
       return <Ionicons name='md-bus' size={22} color='green' />;
+    case 'train':
+      return <Ionicons name='md-train' size={22} color='green' />;
     case 'taxi':
       return <Ionicons name='md-car' size={22} color='green' />;
   }

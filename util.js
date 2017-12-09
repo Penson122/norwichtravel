@@ -26,3 +26,15 @@ export const getLatLng = (address) => {
       console.error(error);
     });
 };
+
+export const getFromAPI = (url) => {
+  return fetch(url)
+    .then((response) => response.json())
+    .then((responseJson) => {
+      return responseJson;
+    })
+    .catch((error) => {
+      // create warning service is down
+      console.error(error);
+    });
+};
