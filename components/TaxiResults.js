@@ -32,7 +32,7 @@ const TaxiResults = ({ taxis, handler }) => {
 };
 
 const TaxiResult = ({ name, rating, number, buttonHandler }) => (
-  <View style={styles.item}>
+  <View style={styles.item} onMagicTap={() => buttonHandler(number)}>
     <Text style={styles.text}>{name}</Text>
     { rating ? <Rating rating={rating} /> : null }
     <CallButton handler={() => buttonHandler(number)} />
@@ -41,7 +41,11 @@ const TaxiResult = ({ name, rating, number, buttonHandler }) => (
 
 const CallButton = ({ handler }) => (
   <View>
-    <TouchableOpacity style={{ paddingRight: '5%' }} onPress={handler}>
+    <TouchableOpacity
+      style={{ paddingRight: '5%' }}
+      onPress={handler}
+      accessibilityLabel='Call Taxi'
+      accessibilityTraits='button'>
       <Ionicons name='ios-call' color='green' size={40} />
     </TouchableOpacity>
   </View>
