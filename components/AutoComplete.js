@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, FlatList, View } from 'react-native';
+import { Text, FlatList, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 const AutoComplete = ({ listItems, selectionHandler, style }) => {
@@ -25,7 +25,7 @@ AutoComplete.propTypes = {
     }).isRequired
   ).isRequired,
   selectionHandler: PropTypes.func.isRequired,
-  style: View.propTypes.style
+  style: ViewPropTypes.style
 };
 
 AutoCompleteItem.propTypes = {

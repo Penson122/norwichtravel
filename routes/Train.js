@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, ScrollView, StyleSheet, Platform } from 'react-native';
+import { Location, Permissions } from 'expo';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
@@ -49,7 +50,41 @@ class Train extends React.Component {
     this.onOriginTimeChange = this.onOriginTimeChange.bind(this);
     this.clearOriginText = this.clearOriginText.bind(this);
     this.clearDestinationText = this.clearDestinationText.bind(this);
+    this.getLocation = this.getLocation.bind(this);
+    this.getPermission = this.getPermission.bind(this);
   };
+
+  componentWillMount () {
+    this.getPermission();
+  }
+
+  getPermission = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    this.setState({ permission: status });
+  };
+
+  getLocation = async (type) => {
+    if (this.state.permission === 'granted') {
+      let location = await Location.getCurrentPositionAsync({});
+      const url = NORWICH_API + '/train/near/' + location.coords.latitude + '/' + location.coords.longitude;
+      getFromAPI(url).then(response => {
+        const stations = response.stations.map((s, i) => ({ description: s.name, key: i }));
+        if (type === 'origin') {
+          this.setState({
+            originAutoComplete: stations,
+            stations: response.stations,
+            hasSelected: true
+          });
+        }
+        if (type === 'destination') {
+          this.setState({
+            destinationAutoComplete: stations,
+            hasSelected: true,
+            stations: response.stations });
+        }
+      });
+    }
+  }
 
   onOriginChange (text) {
     this.setState({ originText: text });
@@ -124,7 +159,7 @@ class Train extends React.Component {
 
   searchHandler (origin, destination) {
     if (origin.length > 0) {
-      const originStation = this.state.stations.find(s => s.name === origin);
+      const originStation = this.state.stations.find(s => s.name.includes(origin));
       if (originStation === undefined) {
         // hax
         getLatLng(`${origin}, UK`).then(geocode => {
@@ -137,6 +172,8 @@ class Train extends React.Component {
                 this.setState({ results });
                 if (results.length === 0) {
                   this.setState({ noResults: true });
+                } else {
+                  this.setState({ noResults: false });
                 }
               });
           });
@@ -147,6 +184,8 @@ class Train extends React.Component {
           this.setState({ results });
           if (results.length === 0) {
             this.setState({ noResults: true });
+          } else {
+            this.setState({ noResults: false });
           }
         });
       }
@@ -214,6 +253,7 @@ class Train extends React.Component {
           onDestinationSelect={this.onDestinationSelect}
           defaults={this.state.defaults}
           switch={this.switchOriginDestination}
+          getLocation={this.getLocation}
         />
         {
           this.state.noResults ? <Text style={styles.results}>No Results Found</Text> : null

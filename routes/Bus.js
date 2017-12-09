@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Platform, Text } from 'react-native';
+import { Location, Permissions } from 'expo';
 
 import Search from '../components/Search';
 import SearchResults from '../components/SearchResults';
 
 import { getAutoCompleteList, getLatLng, getDateTime, getFromAPI } from '../util';
-
 import { NORWICH_API } from '../constants.js';
 
 const styles = StyleSheet.create({
@@ -27,6 +27,7 @@ class Bus extends Component {
     super(props);
     const datetime = getDateTime();
     this.state = {
+      location: {},
       results: [],
       originText: '',
       originTime: datetime[1],
@@ -49,6 +50,32 @@ class Bus extends Component {
     this.onDateChange = this.onDateChange.bind(this);
     this.onTimeChange = this.onTimeChange.bind(this);
     this.clearOriginText = this.clearOriginText.bind(this);
+    this.getPermission = this.getPermission.bind(this);
+    this.getLocation = this.getLocation.bind(this);
+  }
+
+  componentWillMount () {
+    this.getPermission();
+  }
+
+  getPermission = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    this.setState({ permission: status });
+  };
+
+  getLocation = async () => {
+    if (this.state.permission === 'granted') {
+      let location = await Location.getCurrentPositionAsync({});
+      const url = NORWICH_API + '/bus/near/' + location.coords.latitude + '/' + location.coords.longitude;
+      getFromAPI(url).then(response => {
+        const stops = response.stops.map((s, i) => ({ description: s.name, key: i }));
+        this.setState({
+          originAutoComplete: stops,
+          stops: response.stops,
+          hasSelected: true
+        });
+      });
+    }
   }
 
   originChange (text) {
@@ -120,7 +147,7 @@ class Bus extends Component {
   render () {
     return (
       <ScrollView style={styles.container} accessibile>
-        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Updates</Text>
+        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Upadates</Text>
         <Search
           submitHandler={this.searchHandler}
           clearOriginText={this.clearOriginText}
@@ -135,6 +162,7 @@ class Bus extends Component {
           options={this.state.options}
           placeholder={this.state.placeholder}
           defaults={{ origin: true }}
+          getLocation={this.getLocation}
         />
         {
           this.state.noResults

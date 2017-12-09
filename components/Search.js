@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
@@ -7,6 +7,7 @@ import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import AutoComplete from './AutoComplete';
 import ExtendedSearch from './ExtendedSearch';
 import EnhancedTextInput from './EnhancedTextInput';
+import LocationButton from './LocationButton';
 const styles = StyleSheet.create({
   input: {
     width: '90%',
@@ -42,22 +43,29 @@ class Search extends Component {
         <View>
           <View style={styles.input}>
             <EnhancedTextInput
-              buttonHandler={this.props.clearOriginText}
               placeholder={this.props.placeholder.origin}
               onChangeText={this.props.onOriginChange}
               value={this.props.originText}
               editable={this.props.defaults.origin}
             >
-              { this.props.originText.length > 3 ? <Ionicons name='ios-close' size={36} /> : null }
+              { this.props.originText.length > 3
+                ? <TouchableOpacity onPress={this.props.clearOriginText}>
+                  <Ionicons name='ios-close' size={40} style={{ paddingRight: '5%' }} />
+                </TouchableOpacity>
+                : null }
+              <LocationButton
+                handler={() => this.props.getLocation(this.props.originText.length === 0 ? 'origin' : 'destination')}
+                color='gray'
+              />
             </EnhancedTextInput>
           </View>
           {this.props.options.destination
             ? <MaterialCommunityIcons
               style={{
                 alignSelf: 'flex-end',
-                top: 10,
+                top: 50,
                 position: 'absolute',
-                right: 10,
+                right: 5
               }}
               name='swap-vertical'
               size={40}
@@ -91,8 +99,11 @@ class Search extends Component {
                 value={this.props.destinationText}
                 editable={(this.props.defaults.destination)}
               >
-                { this.props.destinationText.length &&
-                  !this.props.defaults.destination > 3 ? <Ionicons name='ios-close' size={36} /> : null }
+                { this.props.destinationText.length > 3 && !this.props.defaults.destination
+                  ? <TouchableOpacity onPress={this.props.clearDestinationText}>
+                    <Ionicons name='ios-close' size={40} style={{ paddingRight: '5%' }} />
+                  </TouchableOpacity>
+                  : null }
               </EnhancedTextInput>
             </View>
             <AutoComplete
@@ -158,6 +169,7 @@ Search.propTypes = {
   originTime: PropTypes.string,
   originDate: PropTypes.string,
   switch: PropTypes.func,
+  getLocation: PropTypes.func.isRequired
 };
 
 export default Search;
