@@ -47,7 +47,6 @@ const App = TabNavigator({
   tabBarOptions: {
     showIcon: true,
     activeTintColor: '#FFFFFF',
-    activeBackgroundColor: '#FFFFFF',
     labelStyle: {
       fontSize: 24
     },
