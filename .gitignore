@@ -2,3 +2,4 @@ node_modules/
 .expo/
 npm-debug.*
 server/node_modules
+server/.env
