@@ -1,5 +1,5 @@
 % BOF Preamble
-\documentclass{ueacmpstyle}
+\documentclass[cmpstyle]{ueacmpstyle}
 % imports
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -15,7 +15,7 @@
 % BOF Document
 \begin{document}
 	% BOF Title & Abstract
-	\title{\nt: developing usable software}
+	\title{\textsc{NorwichTravel}: developing usable software}
 	\author{Jack C. Penson, Christopher A. Irvine}
 	\date{\today}
 	\maketitle
@@ -25,13 +25,19 @@
 	% EOF Title & Abstract
 	% BOF Introduction
 	\section{Introduction}
-	In this report we will explore what it means for a Mobile Application (app) to be usable and accessible to all potential users. Specifically looking into the industry standard guidelines related to app. Then we follow the development cycle of \nt \ as it progresses to be increasingly more user friendly. 
+	In this report we will explore what it means for a Mobile Application (app) to be usable and accessible to all potential users. Specifically looking into the industry standard guidelines related to Mobile Applications. Then we follow the development cycle of \nt \ as it progresses to be increasingly more user friendly and accessible. Finally we will examine techniques and methods for testing the accessibility of an app, as we perform them on \nt, to discern what improvements could be made in the future to improve \nt.
+	
+	\textit{Usability} is defined as ``How effectively, efficiently and satisfactorily a user can interact with a user interface''; whereas \textit{Accessibility} is defined as ``The measure of a web page's usability by persons with one or more disabilities'' \citep{usability}. The difference between the two is that accessibility is about usability for those with disabilities.
+	
+	In order to develop an app that is accessible we must first develop the app to be usable. Once that has been achieved the development is a balancing act between maintaining usability whilst integrating accessibility, at the same time keeping the integrity of the design.
 	
 	% EOF Introduction
 	% BOF Usability and Accessibility Discussion
 	\section{Usability and Accessibility}
 	
+	
 		\subsection{Why is Usability and Accessibility Important?}
+		
 		
 		\subsection{Industry Guidelines}
 	% EOF Usability and Accessibility Discussion
@@ -78,7 +84,7 @@
 		\subsection{Was \nt \ accessible to the target user groups?}
 	% EOF Conclusion
 	
-	\bibliographystyle{plain}
+	\bibliographystyle{abbrvnat}
 	\bibliography{report}
 \end{document}
 
