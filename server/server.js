@@ -203,13 +203,17 @@ const getCurrentDateTime = () => {
 };
 
 const flatMapTransportResults = (results) => {
-  const list = Object.entries(results.departures)
-    .map(([key, value]) => value)
-    .reduce((acc, cur) => acc.concat(cur), []);
-  list.sort((a, b) => {
-    return a.aimed_departure_time.localeCompare(b.aimed_departure_time);
-  });
-  return list;
+  if (results.departures) {
+    const list = Object.entries(results.departures)
+      .map(([key, value]) => value)
+      .reduce((acc, cur) => acc.concat(cur), []);
+    list.sort((a, b) => {
+      return a.aimed_departure_time.localeCompare(b.aimed_departure_time);
+    });
+    return list;
+  } else {
+    return [];
+  }
 };
 
 console.log('listening on port : ', PORT);
