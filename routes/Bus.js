@@ -148,7 +148,7 @@ class Bus extends Component {
   render () {
     return (
       <ScrollView style={styles.container} accessibile>
-        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Upadates</Text>
+        <Text style={{ alignSelf: 'center', fontSize: 20 }}>Live Updates</Text>
         <Search
           submitHandler={this.searchHandler}
           clearOriginText={this.clearOriginText}
