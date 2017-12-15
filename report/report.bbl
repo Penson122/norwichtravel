@@ -1,0 +1,55 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Berners-Lee(2017)]{W3Cwho}
+T.~Berners-Lee.
+\newblock About w3c, 2017.
+\newblock URL \url{https://www.w3.org/Consotrium}.
+
+\bibitem[Consortium(2017)]{w3guide}
+W.~Consortium.
+\newblock W3 accessibility guidelines, 2017.
+\newblock URL \url{https://www.w3.org/WAI/mobile}.
+
+\bibitem[Expo(2017)]{expo}
+Expo.
+\newblock Expo: the fastest way to build an app, 2017.
+\newblock URL \url{https://expo.io}.
+
+\bibitem[Facebook(2017)]{reactAccess}
+Facebook.
+\newblock React native accessibility documentation, 2017.
+\newblock URL
+  \url{https://facebook.github.io/react-native/docs/accessibility.html}.
+
+\bibitem[Government(2013)]{usability}
+U.~S. Government.
+\newblock Usability.gov, 2013.
+\newblock URL \url{https://www.usability.gov/}.
+
+\bibitem[Living~Foundation(2017)]{disabledUK}
+D.~Living~Foundation.
+\newblock Key facts, 2017.
+\newblock URL \url{www.dlf.org.uk/content/key-facts}.
+
+\bibitem[Ofcom(2017)]{ofcom}
+Ofcom.
+\newblock Disabled consumer's use of communication devices, 2017.
+
+\bibitem[Statista(2017)]{smartphonePrice}
+Statista.
+\newblock Average selling price for smartphones worldwide in 2013 and 2017 by
+  region (in u.s. dollars), 2017.
+\newblock URL
+  \url{https://www.statista.com/statistics/283334/global-average-selling-price-smartphones/}.
+
+\bibitem[WebAIM(2017)]{contrast-check}
+WebAIM.
+\newblock Color contrast checker, 2017.
+\newblock URL \url{https://webaim.org/resources/contrastchecker/}.
+
+\end{thebibliography}
