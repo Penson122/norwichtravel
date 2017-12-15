@@ -55,7 +55,7 @@ class Search extends Component {
                 : null }
               <LocationButton
                 handler={() => this.props.getLocation(this.props.originText.length === 0 ? 'origin' : 'destination')}
-                color='gray'
+                color='deepskyblue'
               />
             </EnhancedTextInput>
           </View>
