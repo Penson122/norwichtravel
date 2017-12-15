@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.3)  15 DEC 2017 05:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.29)  15 DEC 2017 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./report.tex
 (./report.tex
 LaTeX2e <2017-04-15>
-Babel <3.13> and hyphenation patterns for 84 language(s) loaded.
+Babel <3.12> and hyphenation patterns for 84 language(s) loaded.
 (./ueacmpstyle.cls
 
 LaTeX Warning: You have requested document class `ueacmpstyle',
@@ -72,7 +72,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (c:/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2017/09/02 v2.17a AMS math features
+Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
@@ -352,59 +352,72 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
- [3] (./report.bbl
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 11.
+ [3] [4] (./report.bbl
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 12.
 
 (c:/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
+Overfull \hbox (184.16743pt too wide) in paragraph at lines 9--13
+[]\OT1/cmr/m/n/10.95 BBC.  Bbc ac-ces-si-bil-ity guide-lines, 2016.  URL \OT1/p
+cr/m/n/10.95 http://www.bbc.co.uk/guidelines/futuremedia/accessibility/mobile\O
+T1/cmr/m/n/10.95 . 
+ []
+
+[5]
+Underfull \hbox (badness 1478) in paragraph at lines 20--23
+[]\OT1/cmr/m/n/10.95 CodeShip.  Code-ship: a con-tin-u-ous in-te-gra-tion plat-
+form in the cloud, 2017.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--28
 []\OT1/cmr/m/n/10.95 W. Con-sor-tium.  W3 ac-ces-si-bil-ity guide-lines, 2017. 
  URL
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 24--28
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
 []\OT1/cmr/m/n/10.95 Facebook.  Re-act na-tive ac-ces-si-bil-ity doc-u-men-ta-t
 ion, 2017.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--49
+Underfull \hbox (badness 10000) in paragraph at lines 55--60
 []\OT1/cmr/m/n/10.95 Statista.  Av-er-age sell-ing price for smart-phones world
 -wide in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--49
+Underfull \hbox (badness 10000) in paragraph at lines 55--60
 \OT1/cmr/m/n/10.95 2013 and 2017 by re-gion (in u.s. dol-lars), 2017.  URL
  []
 
 
-Overfull \hbox (110.62695pt too wide) in paragraph at lines 44--49
+Overfull \hbox (110.62695pt too wide) in paragraph at lines 55--60
 \OT1/pcr/m/n/10.95 https://www.statista.com/statistics/283334/global-average-se
 lling-price-smartphones/\OT1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (56.41748pt too wide) in paragraph at lines 51--54
+Overfull \hbox (56.41748pt too wide) in paragraph at lines 62--65
 []\OT1/cmr/m/n/10.95 WebAIM.  Color con-trast checker, 2017.  URL \OT1/pcr/m/n/
 10.95 https://webaim.org/resources/contrastchecker/\OT1/cmr/m/n/10.95 . 
  []
 
-) [5] (./report.aux)
+) [6] (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4305 strings out of 492990
- 57926 string characters out of 6136334
- 139152 words of memory out of 5000000
- 7778 multiletter control sequences out of 15000+600000
+ 4313 strings out of 492990
+ 58048 string characters out of 6136334
+ 139207 words of memory out of 5000000
+ 7786 multiletter control sequences out of 15000+600000
  13430 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,43p,1102b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,43p,1102b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2017/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1
@@ -413,10 +426,10 @@ amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on report.pdf (5 pages, 143197 bytes).
+Output written on report.pdf (6 pages, 150200 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,14 +1,25 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[BBC(2016)]{bbcguide}
+BBC.
+\newblock Bbc accessibility guidelines, 2016.
+\newblock URL
+  \url{http://www.bbc.co.uk/guidelines/futuremedia/accessibility/mobile}.
+
 \bibitem[Berners-Lee(2017)]{W3Cwho}
 T.~Berners-Lee.
 \newblock About w3c, 2017.
 \newblock URL \url{https://www.w3.org/Consotrium}.
+
+\bibitem[CodeShip(2017)]{codeship}
+CodeShip.
+\newblock Codeship: a continuous integration platform in the cloud, 2017.
+\newblock URL \url{https://codeship.com/}.
 
 \bibitem[Consortium(2017)]{w3guide}
 W.~Consortium.

@@ -21,7 +21,7 @@
 	\date{\today}
 	\maketitle
 	\begin{abstract}
-		As technology becomes more accessible and prevalent in today's society, the demand in industry for Mobile Applications to be accessible to all potential users is growing. \nt \ is an app built in React Native with a focus on ease of use. Specifically handling users who are visually impaired and might posses limited motor skills. %weak word growing% 
+		As technology becomes more accessible and prevalent in today's society, the demand in industry for mobile applications to be accessible to all potential users is growing. \nt \ is an app built in React Native with a focus on ease of use. Specifically handling users who are visually impaired and might posses limited motor skills. %weak word growing% 
 	\end{abstract}
 	% EOF Title & Abstract
 	% BOF Introduction
@@ -47,7 +47,7 @@
 		
 		Due to this change in the user base, developers need spend more of their resources catering for them. Services that do not devote sufficient resources to integrate accessibility and usability features, are essentially denying themselves potential users. 13 million people in the UK have some kind of disability, which is $\frac{1}{5}\textsuperscript{th}$ of the population \citep{disabledUK}. This does not only to app developers, web developers need to make their websites as usable and accessible as possible.
 		
-		\subsection{Industry Guidelines} \label{industry}
+		\subsection{Industry Guidelines} \label{sec:industry}
 		With the user base changing for the web and app industries, the consensus is that Usability and Accessibility is indeed important and there should be metrics and guidelines in place to ensure that the disabled user base is looked after in the proper manner. The World Wide Web Consortium (W3C), ``an international community where Member organisations, a full-time staff and the public work together to develop web standards.'' \citep{W3Cwho}, developed a set of guidelines (including metrics) for web developers to follow. These guidelines are known as the ``\textit{W3 Accessibility Guidelines}'' \citep{w3guide}. Whilst these guidelines are principally aimed towards websites, there is a dedicated section to mobile usability and accessibility including a separate set of metrics. In addition to the guidelines, there are several services that serve to check if your website (or app in some cases) comply with the W3 Accessibility Guidelines. One such example is the WebAIM: Color Contrast Checker, seen in Figure \ref{fig:contrast-check} \citep{contrast-check}.
 		
 		\begin{figure}
@@ -81,24 +81,42 @@
 		From the Scenario in Section \ref{sec:scenario} we can tell that \nt \ is aimed principally at the Students of UEA. However, \nt \ can be used by anyone who needs by transport information within Norwich, be it Business Personnel on a trip to Norwich or a tourist passing through whilst exploring the Norfolk Broads. This means that we are looking at a very diverse user base. Individuals of all backgrounds and skill sets could use \nt. Therefore the design of \nt \ must be focused on Usability. 
 		
 		\subsection{Documentation Overview} \label{sec:doc-over}
-		No fekin idea what needs to go in here *cri* Jack halp!
+		ReactNative vs React Vanilla
+		API System Structure
+		CI Testing
 		
 	% EOF NorwichTravel overview
 	% BOF Design Discussion
 	\section{Designing for Usability and Accessibility} \label{sec:design}
-	Look at the literature review and talk about the various types of guidelines that apply to Mobile Apps.
+	As we discussed in Section \ref{sec:industry}, there is a set of guidelines provide assistance to developers when integrating accessibility features. In addition to the W3 Accessibility Guidelines, the BBC have released a comprehensive guide to accessibility in apps \citep{bbcguide}.
+	
+	In this section we will discuss some examples from these two guidelines and how they relate to \nt, with a further investigation into the compromises made to conform to the industry standard guidelines.
 	
 		\subsection{Conforming to Guidelines} \label{sec:conform}
-		Talk about the methodology employed to comply
+		\textbf{Guideline 1: Colour Contrast} - mentioned in both of the guidelines we are concerning ourselves with. A ratio of \textbf{4.5:1} is supplied that reflect the contrast that should exist between the Foreground Text and Background Colour. To conform to this guideline we aimed to have the colour scheme of \nt \ double this metric, having a minimum contrast \textbf{9:1}. This makes \nt \ highly accessible to those who are visually impaired.
+		
+		\textbf{Guideline 2: Touch Target Size} - inspired by the W3 Accessibility Guidelines and expanded by the BBC Mobile Accessibility Guidelines. The metric to aim for is a touch target area (i.e. a button) must be between \textbf{7-10mm height and width}. In addition to the expected design elements such as the buttons must not overlap.
+		
+		\textbf{Guideline 3: Text Size} - defined within the mobile section of the W3 Accessibility Guidelines, it dictates that the default text should be able to be doubled in size without loosing content. \nt \ text was defined with this in manner and text will wrap to prevent any loss of content.
 		
 		\subsection{Compromises Made} \label{sec:comp}
-		Relate this back to the three-way balancing act.
+		\nt \ was designed with Usability and Accessibility in mind from the conception of the app. Due to this the design compromises that to be made were minimal. Those that had to be made are the expansion of the Train \textit{search component} and the choice of React Native. 
+		
+		The \textit{search component} within \nt \ is shared between both the Bus and Train containers. The Bus container only takes an origin for the search function. The Train screen however can take either an origin or an origin and destination combined. This subtle change in the search component functionality caused the developers measurable increase in hours spent on the project. The compromise here is that whilst it might be easier to implement two search components, in terms of maintainability it was better to have one - despite the increase in development time.
+		
+		The choice of React Native was a compromise between the ease of development and the ability to access the operating system native accessibility features. This allowed \nt \ to respond to the system settings for text size and allowed the developers to set specific labels for the screen readers to vocalise. 
 		
 	% EOF Design Discussion
 	% BOF Evaluation and Testing
 	\section{Evaluating \nt} \label{sec:eval}
+	\nt \ used Continuous Integration (CI) and Continuous Deployment (CD) tools such as Expo and CodeShip \citep{codeship}. This allows for the latest version of the app to be tested without the developers having to manually redeploy after each commit to the GitHub repository. 
+	
+	The general methodology for testing was to use the industry standard tools when possible (see Section \ref{sec:industry-tools}), the ``glasses'' test as often an possible (see Section \ref{sec:glasses}) and Think-Aloud evaluations during milestones within the project (see Section \ref{sec:think}). Milestones for \nt \ are defined by major features being ``completed''. For example; the bus search functionality working would be a milestone, and would be the testing of the bus search would include a Think-Aloud Evaluation. Prototyping was used at the start of the development cycle (see Section \ref{sec:proto}), to avoid costly and time consuming mistakes further into the project.
 	
 		\subsection{Prototyping} \label{sec:proto}
+		Lo-fi prototyping involves sketching the design of a system on paper, whilst producing labels to overlay the design to mock how the final system will operate. As stated in Section \ref{sec:eval}, the lo-fi was used at the begining of the development cycle to quickly refine the initial concepts. These prototypes can be seen in Appendix \ref{app:lo-fi}.
+		
+		Med-fi prototyping was used throughout the development process through the use of emulators such as Genymotion and Simulator. This allowed the developers to ``live preview'' the changes they were making as if they were running on a mobile device. The emulator tools could mimic a large range of mobile devices so that all screen sizes could be tested.
 		
 			\subsubsection{Think-Aloud Evaluation} \label{sec:think}
 			
@@ -108,14 +126,16 @@
 		This test proved extremely effective, due to its similarity to the Think-Aloud Evaluation. The crucial difference is that the developer does not have to convey their thoughts to an evaluator. Instead they can note down the issues they encounter in a manner that makes sense to them and then immediately act upon them. 
 		
 		\subsection{Industry Tools} \label{sec:industry-tools}
+		As we learned from Figure \ref{fig:contrast-check}, WebAIM's contrast checker was used to certify that \nt \ was accessible to those with visual impairments. 
 		
-		\subsection{Results and Adjustments to \nt} \label{sec:adjust}
+		Unfortunately, there is not a strong ecosystem for automated mobile app usability and accessibility testing. 
+		
+	\section{Issues within \nt} \label{sec:major}
+	One of the largest issues within \nt \ was the state of affairs with React Native's conditional rendering. 
 			
-			\subsubsection{Major Issues} \label{sec:major}
+		\subsection{Addressing Issues} \label{sec:address}
 			
-			\subsubsection{Addressing Issues} \label{sec:address}
-			
-			\subsubsection{Open Issues} \label{sec:open}
+		\subsection{Open Issues} \label{sec:open}
 	% EOF Evaluation and Testing
 	% BOF Conclusion
 	\section{Conclusions} \label{sec:conc}
@@ -129,7 +149,15 @@
 	\bibliography{report}
 	
 	\appendix
-	\section{Prototypes}
+	\section{Prototypes} \label{app:proto}
+	
+		\subsection{Lo-Fi} \label{app:lo-fi}
+		
+		IMAGE OF LO-FI HERE!!!!!!!
+		
+		\subsection{Med-Fi} \label{app:med-fi}
+		
+		IMAGES OF MED-FI HERE!!!!!
 	
 	\section{UML Diagrams}
 \end{document}
