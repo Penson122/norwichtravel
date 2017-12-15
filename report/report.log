@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.29)  15 DEC 2017 12:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.29)  15 DEC 2017 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -342,7 +342,7 @@ File: images/contrast-checker.png Graphic file (type png)
 <use images/contrast-checker.png>
 Package pdftex.def Info: images/contrast-checker.png  used on input line 55. on
  input line 55.
-Package pdftex.def Info: Requested size: 331.65558pt x 199.16928pt on input lin
+Package pdftex.def Info: Requested size: 284.27982pt x 170.71652pt on input lin
 e 55.
  [2 <./images/contrast-checker.png>]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
@@ -352,22 +352,43 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
- [3] [4] (./report.bbl
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 12.
+ [3]
 
-(c:/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+LaTeX Warning: Reference `sec:think' on page 4 undefined on input line 114.
+
+[4] [5] (./report.bbl
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 16.
+ (c:/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (184.16743pt too wide) in paragraph at lines 9--13
+Underfull \hbox (badness 1533) in paragraph at lines 9--17
+[]\OT1/cmr/m/n/10.95 H. L. An-tonelli and R. P. de Mat-tos Fortes.  A sup-port 
+for de-vel-op-ers im-ple-ment
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 9--17
+\OT1/cmr/m/n/10.95 the ac-ces-si-bil-ity guide-lines re-gard-ing to web menus. 
+ In \OT1/cmr/m/it/10.95 Pro-ceed-ings of the 21st
+ []
+
+
+Underfull \hbox (badness 1024) in paragraph at lines 9--17
+\OT1/cmr/m/it/10.95 Brazil-ian Sym-po-sium on Mul-ti-me-dia and the Web, Web-Me
+-dia 2015, Man-aus, Brazil,
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 9--17
+\OT1/cmr/m/it/10.95 Oc-to-ber 27-30, 2015\OT1/cmr/m/n/10.95 , pages 33--40, 201
+5.  doi: 10.1145/2820426.2820445.  URL
+ []
+
+
+Overfull \hbox (184.16743pt too wide) in paragraph at lines 19--23
 []\OT1/cmr/m/n/10.95 BBC.  Bbc ac-ces-si-bil-ity guide-lines, 2016.  URL \OT1/p
 cr/m/n/10.95 http://www.bbc.co.uk/guidelines/futuremedia/accessibility/mobile\O
 T1/cmr/m/n/10.95 . 
- []
-
-[5]
-Underfull \hbox (badness 1478) in paragraph at lines 20--23
-[]\OT1/cmr/m/n/10.95 CodeShip.  Code-ship: a con-tin-u-ous in-te-gra-tion plat-
-form in the cloud, 2017.  URL
  []
 
 
@@ -377,59 +398,181 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--28
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--39
+Underfull \hbox (badness 10000) in paragraph at lines 30--34
 []\OT1/cmr/m/n/10.95 Facebook.  Re-act na-tive ac-ces-si-bil-ity doc-u-men-ta-t
 ion, 2017.  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
+Underfull \hbox (badness 10000) in paragraph at lines 45--50
 []\OT1/cmr/m/n/10.95 Statista.  Av-er-age sell-ing price for smart-phones world
 -wide in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
+Underfull \hbox (badness 10000) in paragraph at lines 45--50
 \OT1/cmr/m/n/10.95 2013 and 2017 by re-gion (in u.s. dol-lars), 2017.  URL
  []
 
 
-Overfull \hbox (110.62695pt too wide) in paragraph at lines 55--60
+Overfull \hbox (110.62695pt too wide) in paragraph at lines 45--50
 \OT1/pcr/m/n/10.95 https://www.statista.com/statistics/283334/global-average-se
 lling-price-smartphones/\OT1/cmr/m/n/10.95 . 
  []
 
 
-Overfull \hbox (56.41748pt too wide) in paragraph at lines 62--65
+Overfull \hbox (56.41748pt too wide) in paragraph at lines 52--55
 []\OT1/cmr/m/n/10.95 WebAIM.  Color con-trast checker, 2017.  URL \OT1/pcr/m/n/
 10.95 https://webaim.org/resources/contrastchecker/\OT1/cmr/m/n/10.95 . 
  []
 
-) [6] (./report.aux)
+) [6]
+<images/lo-fi-1.jpg, id=31, 4047.12pt x 3035.34pt>
+File: images/lo-fi-1.jpg Graphic file (type jpg)
+<use images/lo-fi-1.jpg>
+Package pdftex.def Info: images/lo-fi-1.jpg  used on input line 158. on input l
+ine 158.
+Package pdftex.def Info: Requested size: 379.35481pt x 284.52756pt on input lin
+e 158.
+<images/lo-fi-2.jpg, id=32, 4047.12pt x 3035.34pt>
+File: images/lo-fi-2.jpg Graphic file (type jpg)
+<use images/lo-fi-2.jpg>
+Package pdftex.def Info: images/lo-fi-2.jpg  used on input line 163. on input l
+ine 163.
+Package pdftex.def Info: Requested size: 379.35481pt x 284.52756pt on input lin
+e 163.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7
+
+ <./images/lo-fi-1.jpg>] [8 <./images/lo-fi-2.jpg>]
+<images/android-landing.png, id=40, 1084.05pt x 1927.2pt>
+File: images/android-landing.png Graphic file (type png)
+<use images/android-landing.png>
+Package pdftex.def Info: images/android-landing.png  used on input line 171. on
+ input line 171.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 171.
+<images/android-bus-1.png, id=41, 1084.05pt x 1927.2pt>
+File: images/android-bus-1.png Graphic file (type png)
+<use images/android-bus-1.png>
+Package pdftex.def Info: images/android-bus-1.png  used on input line 176. on i
+nput line 176.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 176.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/android-bus-2.png, id=42, 1084.05pt x 1927.2pt>
+File: images/android-bus-2.png Graphic file (type png)
+<use images/android-bus-2.png>
+Package pdftex.def Info: images/android-bus-2.png  used on input line 181. on i
+nput line 181.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 181.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/android-train-1.png, id=43, 1084.05pt x 1927.2pt>
+File: images/android-train-1.png Graphic file (type png)
+<use images/android-train-1.png>
+Package pdftex.def Info: images/android-train-1.png  used on input line 186. on
+ input line 186.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 186.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/android-train-2.png, id=44, 1084.05pt x 1927.2pt>
+File: images/android-train-2.png Graphic file (type png)
+<use images/android-train-2.png>
+Package pdftex.def Info: images/android-train-2.png  used on input line 191. on
+ input line 191.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 191.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/android-time.png, id=45, 1084.05pt x 1927.2pt>
+File: images/android-time.png Graphic file (type png)
+<use images/android-time.png>
+Package pdftex.def Info: images/android-time.png  used on input line 196. on in
+put line 196.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 196.
+<images/android-date.png, id=46, 1084.05pt x 1927.2pt>
+File: images/android-date.png Graphic file (type png)
+<use images/android-date.png>
+Package pdftex.def Info: images/android-date.png  used on input line 201. on in
+put line 201.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 201.
+<images/android-taxi.png, id=47, 1084.05pt x 1927.2pt>
+File: images/android-taxi.png Graphic file (type png)
+<use images/android-taxi.png>
+Package pdftex.def Info: images/android-taxi.png  used on input line 206. on in
+put line 206.
+Package pdftex.def Info: Requested size: 160.03659pt x 284.52756pt on input lin
+e 206.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/codeship.png, id=48, 2820.5375pt x 1220.56pt>
+File: images/codeship.png Graphic file (type png)
+<use images/codeship.png>
+Package pdftex.def Info: images/codeship.png  used on input line 211. on input 
+line 211.
+Package pdftex.def Info: Requested size: 394.48521pt x 170.71652pt on input lin
+e 211.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9
+
+ <./images/android-landing.png (PNG copy)>] [10 <./images/android-bus-1.png (PN
+G copy)> <./images/android-bus-2.png (PNG copy)>] [11 <./images/android-train-1
+.png (PNG copy)> <./images/android-train-2.png (PNG copy)>] [12 <./images/andro
+id-time.png (PNG copy)> <./images/android-date.png (PNG copy)>] [13 <./images/a
+ndroid-taxi.png (PNG copy)> <./images/codeship.png>]
+<images/object-orientated.png, id=66, 353.32pt x 281.05pt>
+File: images/object-orientated.png Graphic file (type png)
+<use images/object-orientated.png>
+Package pdftex.def Info: images/object-orientated.png  used on input line 218. 
+on input line 218.
+Package pdftex.def Info: Requested size: 357.71298pt x 284.52756pt on input lin
+e 218.
+ [14
+
+ <./images/object-orientated.png>] (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 4313 strings out of 492990
- 58048 string characters out of 6136334
- 139207 words of memory out of 5000000
- 7786 multiletter control sequences out of 15000+600000
- 13430 words of font info for 50 fonts, out of 8000000 for 9000
+ 4371 strings out of 492990
+ 59573 string characters out of 6136334
+ 138215 words of memory out of 5000000
+ 7831 multiletter control sequences out of 15000+600000
+ 12439 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,43p,1102b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,43p,1054b,239s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2017/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/tex
-live/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on report.pdf (6 pages, 150200 bytes).
+m/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
+pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on report.pdf (14 pages, 4617603 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
