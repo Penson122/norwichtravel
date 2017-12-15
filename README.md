@@ -1,7 +1,7 @@
 # norwichtravel
 Norwich Travel Information Website (HCI CW2 - CMP-6039A)
 
-The app is available on Expo at:
+The app is available on Expo at: https://exp.host/@penson122/norwich-travel (Open this in Expo for iOS or Android)
 
 The backend is available on [heroku](https://norwichtravelapi.herokuapp.com)
 
