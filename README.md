@@ -55,6 +55,7 @@ Google Maps API Key are available from [Google Maps](https://developers.google.c
 
 
 ## API Docs
+* If you want test against your own version of the server change the `constants.js NORWICH_API` to the url for your server
 * All dates must be formatted yyyy-mm-dd
 * All times must be formated HH:MM
 
