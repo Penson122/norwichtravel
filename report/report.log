@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.3)  15 DEC 2017 05:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.10.3)  15 DEC 2017 05:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -363,7 +363,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--17
  URL
  []
 
-
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 24--28
 []\OT1/cmr/m/n/10.95 Facebook.  Re-act na-tive ac-ces-si-bil-ity doc-u-men-ta-t
 ion, 2017.  URL
@@ -386,7 +386,7 @@ Overfull \hbox (110.62695pt too wide) in paragraph at lines 44--49
 lling-price-smartphones/\OT1/cmr/m/n/10.95 . 
  []
 
-[4]
+
 Overfull \hbox (56.41748pt too wide) in paragraph at lines 51--54
 []\OT1/cmr/m/n/10.95 WebAIM.  Color con-trast checker, 2017.  URL \OT1/pcr/m/n/
 10.95 https://webaim.org/resources/contrastchecker/\OT1/cmr/m/n/10.95 . 
@@ -404,7 +404,7 @@ Here is how much of TeX's memory you used:
  7778 multiletter control sequences out of 15000+600000
  13430 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,43p,1102b,305s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,43p,1102b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2017/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1
@@ -413,7 +413,7 @@ amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on report.pdf (5 pages, 142849 bytes).
+Output written on report.pdf (5 pages, 143197 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
