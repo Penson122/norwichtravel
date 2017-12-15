@@ -70,3 +70,5 @@ Google Maps API Key are available from [Google Maps](https://developers.google.c
 `GET :/ bus/:code/:date`
 
 `GET :/ bus/:code/:date/:time`
+
+`GET :/ taxis` -> [example](https://norwichtravelapi.herokuapp.com/taxis)
